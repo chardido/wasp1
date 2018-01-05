@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3 text-center>Benvenuto, {{username | uppercase}}</h3>
+  <hr/>
+
+  <h2>Notifiche</h2>
+  <ion-list>
+    <ion-item *ngFor="let notifica of notifiche">
+      <h2><strong>{{notifica.titolo}}</strong></h2>
+      <h4>{{notifica.descrizione}}</h4>
+      <h4>{{notifica.data}}</h4>
+    </ion-item>
+  </ion-list>
+
+
+
+
+</ion-content>

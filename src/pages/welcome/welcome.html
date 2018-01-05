@@ -1,0 +1,34 @@
+<!--
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>WASP</ion-title>
+  </ion-navbar>
+</ion-header>
+-->
+
+<ion-content padding id="welcome" class="background">
+  <img src="assets/imgs/logo.png" class="logo"/>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1 text-center>WASP</h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid >
+    <ion-row>
+      <ion-col center text-center>
+        <button ion-button full color="success" (click)="signup()">Registrati</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col center text-center>
+        <button ion-button full color="lightText" (click)="login()">Accedi</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

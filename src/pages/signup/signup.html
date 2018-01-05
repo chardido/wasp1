@@ -1,0 +1,44 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Registrati</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="signup.nome" name="nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cognome</ion-label>
+      <ion-input type="text" [(ngModel)]="signup.cognome" name="cognome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Username</ion-label>
+      <ion-input type="text" [(ngModel)]="signup.username" name="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="signup.password" name="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tipo</ion-label>
+      <ion-select [(ngModel)]="signup.tipo" name="select">
+        <ion-option value="0">Project Manager</ion-option>
+        <ion-option value="1">Team Member</ion-option>
+      </ion-select>
+    </ion-item>
+    <br>
+    <button ion-button type="submit" block>Registrati</button>
+  </form>
+</ion-content>

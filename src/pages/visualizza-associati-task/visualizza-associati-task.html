@@ -1,0 +1,29 @@
+<!--
+  Generated template for the VisualizzaAssociatiTaskPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Membri associati</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <p text-center>
+    Visualizza i membri a cui &egrave; stato assegnato il task
+  </p>
+  <br>
+  <ion-list>
+    <ion-item *ngFor="let utente of utenti">
+      <h2> <strong>{{ utente.nome | uppercase}} {{utente.cognome | uppercase}} </strong></h2>
+      <h3 *ngIf="utente.posizione"> <strong>Team Member</strong></h3>
+      <h4> Costo giornaliero: <strong>{{ utente.costo }}€</strong></h4>
+      <h4> Ricavo giornaliero: <strong>{{ utente.ricavo }}€</strong></h4>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,43 @@
+<!--
+  Generated template for the ProfiloMemberPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Team Members</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <h2>Informazioni</h2>
+    <ion-item>
+      <h4> Nome <span float-right><strong>{{ nomeMembro | uppercase}} </strong></span></h4>
+    </ion-item>
+    <ion-item>
+      <h4> Cognome <span float-right><strong>{{ cognomeMembro | uppercase }} </strong></span></h4>
+    </ion-item>
+    <button ion-item (click)="modificaCosto()">
+      <h4>Costo <span float-right><strong>{{ costoMembro }}€/gg</strong></span></h4>
+    </button>
+    <button ion-item (click)="modificaRicavo()">
+      <h4>Ricavo <span float-right><strong>{{ ricavoMembro }}€/gg</strong></span></h4>
+    </button>
+  </ion-list>
+
+  <h2>Task in corso</h2>
+  <ion-list>
+    <ion-item *ngFor="let task of tasks">
+      <h2>{{task.attivita | uppercase}}</h2>
+      <h4>Progetto: {{task.nome | uppercase}}</h4>
+      <h6>Iniziato: {{task.dataInizio | date:"medium"}}</h6>
+    </ion-item>
+  </ion-list>
+</ion-content>

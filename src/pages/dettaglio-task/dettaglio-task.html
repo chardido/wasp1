@@ -1,0 +1,36 @@
+<!--
+  Generated template for the DettaglioTaskPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ attivita }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <h2 text-center="">Dettaglio task</h2>
+    <ion-item>
+      <h4> Progetto <span float-right><strong>{{ nomeProgetto | uppercase}} </strong></span></h4>
+    </ion-item>
+    <ion-item>
+      <h4> Attivita <span float-right><strong>{{ attivita | uppercase}} </strong></span></h4>
+    </ion-item>
+    <ion-item>
+      <h4>Data Inizio <span float-right><strong>{{ dataInizio | date:"medium"}}</strong></span></h4>
+    </ion-item>
+    <h2 text-center="" [hidden]="!oreComunicate">Task Completato</h2>
+    <ion-item [hidden]="!oreComunicate">
+      <h4> Ore Comunicate <span float-right><strong>{{ oreComunicate | uppercase}} </strong></span></h4>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

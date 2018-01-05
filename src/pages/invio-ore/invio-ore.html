@@ -1,0 +1,28 @@
+<!--
+  Generated template for the InvioOrePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Comunica ore</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <p text-center>
+    Inserisci le ore da comunicare al Project Manager
+  </p>
+  <form (ngSubmit)="comunicaOre()">
+    <ion-item>
+      <ion-label>Ore</ion-label>
+      <ion-input type="number" pattern="[0-9]*" [(ngModel)]="oreInserite" name="ore"></ion-input>
+    </ion-item>
+    <br>
+    <button ion-button type="submit" block>Comunica ore</button>
+  </form>
+</ion-content>
