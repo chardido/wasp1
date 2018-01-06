@@ -7,10 +7,10 @@ webpackJsonp([22],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AggiungimemberPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__selezionaprogetto_selezionaprogetto__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__selezionaprogetto_selezionaprogetto__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_progetto_home_progetto__ = __webpack_require__(34);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62,7 +62,7 @@ var AggiungimemberPage = (function () {
     };
     AggiungimemberPage.prototype.chiamataGet = function () {
         var _this = this;
-        this.http.get("http://localhost:80/WASP/apiListaTeamMember.php").map(function (res) { return res.json(); })
+        this.http.get("http://localhost:8888/WASP/apiListaTeamMember.php").map(function (res) { return res.json(); })
             .subscribe(function (data) {
             _this.utenti = data;
         }, function (error) {
@@ -103,7 +103,7 @@ var AggiungimemberPage = (function () {
             user: username,
             codiceProgetto: this.codiceProgetto,
         };
-        this.http.post("http://localhost:80/WASP/apiAggiungiTeamMemberProgetto.php", postParams, options)
+        this.http.post("http://localhost:8888/WASP/apiAggiungiTeamMemberProgetto.php", postParams, options)
             .subscribe(function (data) {
             if (data['_body'] == 1) {
                 alert.present();
@@ -120,7 +120,7 @@ var AggiungimemberPage = (function () {
     };
     AggiungimemberPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-aggiungimember',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/aggiungimember/aggiungimember.html"*/'<!--\n  Generated template for the AggiungimemberPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Aggiungi Team Member</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n\n<ion-content>\n  <ion-searchbar placeholder="Cerca Utente Per Username" (ionInput)="getItems($event)"></ion-searchbar>\n\n  <div padding>\n    <p text-center>\n      Aggiungi un Team Member al tuo progetto!\n    </p>\n\n    <ion-list>\n      <button ion-item (click)="aggiungiUtente(utente.username)" *ngFor="let utente of utenti">\n        <h2> <strong>{{ utente.username | uppercase}} </strong></h2>\n       <h3 class="alto"> {{ utente.nome }} {{utente.cognome}} </h3>\n      </button>\n    </ion-list>\n\n  </div>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/aggiungimember/aggiungimember.html"*/,
+            selector: 'page-aggiungimember',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/aggiungimember/aggiungimember.html"*/'<!--\n  Generated template for the AggiungimemberPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Aggiungi Team Member</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n\n<ion-content>\n  <ion-searchbar placeholder="Cerca Utente Per Username" (ionInput)="getItems($event)"></ion-searchbar>\n\n  <div padding>\n    <p text-center>\n      Aggiungi un Team Member al tuo progetto!\n    </p>\n\n    <ion-list>\n      <button ion-item (click)="aggiungiUtente(utente.username)" *ngFor="let utente of utenti">\n        <h2> <strong>{{ utente.username | uppercase}} </strong></h2>\n       <h3 class="alto"> {{ utente.nome }} {{utente.cognome}} </h3>\n      </button>\n    </ion-list>\n\n  </div>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/aggiungimember/aggiungimember.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
     ], AggiungimemberPage);
@@ -138,8 +138,8 @@ var AggiungimemberPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssegnaTaskPersonaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -185,7 +185,7 @@ var AssegnaTaskPersonaPage = (function () {
         var postParams = {
             codice: this.codiceProgetto,
         };
-        this.http.post("http://localhost:80/WASP/apiListaMembriAssociatiAlProgetto.php", postParams, options).map(function (res) { return res.json(); })
+        this.http.post("http://localhost:8888/WASP/apiListaMembriAssociatiAlProgetto.php", postParams, options).map(function (res) { return res.json(); })
             .subscribe(function (data) {
             _this.utenti = data;
             console.log(_this.utenti);
@@ -215,7 +215,7 @@ var AssegnaTaskPersonaPage = (function () {
             codiceProgetto: this.codiceProgetto,
             codiceTask: this.codiceTask
         };
-        this.http.post("http://localhost:80/WASP/apiAssegnaTaskAlMember.php", postParams, options)
+        this.http.post("http://localhost:8888/WASP/apiAssegnaTaskAlMember.php", postParams, options)
             .subscribe(function (data) {
             if (data['_body'] == 1) {
                 alert.present();
@@ -231,7 +231,7 @@ var AssegnaTaskPersonaPage = (function () {
     };
     AssegnaTaskPersonaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-assegna-task-persona',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/assegna-task-persona/assegna-task-persona.html"*/'<!--\n  Generated template for the AssegnaTaskPersonaPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Assegna Task</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <p text-center>\n    Seleziona il Team Member a cui assegnare il task <strong>{{nomeTask}}</strong>\n  </p>\n  <br>\n\n  <ion-list>\n    <button ion-item (click)="assegnaTask(utente.user)" *ngFor="let utente of utenti">\n      <h2> <strong>{{ utente.nome | uppercase}} {{utente.cognome | uppercase}} </strong></h2>\n      <h3> {{ utente.user | uppercase}} </h3>\n      <h4> Costo giornaliero: <strong>{{ utente.costo }}€</strong></h4>\n    </button>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/assegna-task-persona/assegna-task-persona.html"*/,
+            selector: 'page-assegna-task-persona',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/assegna-task-persona/assegna-task-persona.html"*/'<!--\n  Generated template for the AssegnaTaskPersonaPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Assegna Task</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <p text-center>\n    Seleziona il Team Member a cui assegnare il task <strong>{{nomeTask}}</strong>\n  </p>\n  <br>\n\n  <ion-list>\n    <button ion-item (click)="assegnaTask(utente.user)" *ngFor="let utente of utenti">\n      <h2> <strong>{{ utente.nome | uppercase}} {{utente.cognome | uppercase}} </strong></h2>\n      <h3> {{ utente.user | uppercase}} </h3>\n      <h4> Costo giornaliero: <strong>{{ utente.costo }}€</strong></h4>\n    </button>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/assegna-task-persona/assegna-task-persona.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
     ], AssegnaTaskPersonaPage);
@@ -250,10 +250,10 @@ var AssegnaTaskPersonaPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__assegna_task_persona_assegna_task_persona__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__selezionaprogetto_selezionaprogetto__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__selezionaprogetto_selezionaprogetto__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -310,7 +310,7 @@ var AssegnaTaskPage = (function () {
         var postParams = {
             codice: this.codiceProgetto,
         };
-        this.http.post("http://localhost:80/WASP/apiListaTasks.php", postParams, options).map(function (res) { return res.json(); })
+        this.http.post("http://localhost:8888/WASP/apiListaTasks.php", postParams, options).map(function (res) { return res.json(); })
             .subscribe(function (data) {
             _this.tasks = data;
         }, function (error) {
@@ -324,7 +324,7 @@ var AssegnaTaskPage = (function () {
     };
     AssegnaTaskPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-assegna-task',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/assegna-task/assegna-task.html"*/'<!--\n  Generated template for the AssegnaTaskPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Assegna task</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n<p text-center>\n  Seleziona il task da assegnare tra quelli disponibili\n</p>\n  <br>\n  <ion-list>\n    <button ion-item (click)="assegnaTask(task.attivita, task.wbs)" *ngFor="let task of tasks">\n      <h2> <strong>{{ task.attivita}} </strong></h2>\n      <h3> {{ task.dataInizio | date:"medium" }} </h3>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/assegna-task/assegna-task.html"*/,
+            selector: 'page-assegna-task',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/assegna-task/assegna-task.html"*/'<!--\n  Generated template for the AssegnaTaskPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Assegna task</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n<p text-center>\n  Seleziona il task da assegnare tra quelli disponibili\n</p>\n  <br>\n  <ion-list>\n    <button ion-item (click)="assegnaTask(task.attivita, task.wbs)" *ngFor="let task of tasks">\n      <h2> <strong>{{ task.attivita}} </strong></h2>\n      <h3> {{ task.dataInizio | date:"medium" }} </h3>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/assegna-task/assegna-task.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */]])
     ], AssegnaTaskPage);
@@ -342,8 +342,8 @@ var AssegnaTaskPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConvalidaOreListaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -449,7 +449,7 @@ var ConvalidaOreListaPage = (function () {
     };
     ConvalidaOreListaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-convalida-ore-lista',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/convalida-ore-lista/convalida-ore-lista.html"*/'<!--\n  Generated template for the ConvalidaOreListaPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n<ion-navbar>\n  <button ion-button menuToggle>\n    <ion-icon name="menu"></ion-icon>\n  </button>\n  <ion-title>Convalida Ore</ion-title>\n</ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <p text-center>\n    Seleziona il task e convalida le ore.\n  </p>\n  <br>\n  <ion-list>\n    <button (click)="convalidaOre(ore.user, ore.oreComunicate, ore.attivita, ore.idTask)" ion-item *ngFor="let ore of oreInviate">\n      <h2>{{ore.user | uppercase}}</h2>\n      <h4>Attivit&agrave;: <strong>{{ore.attivita}}</strong></h4>\n      <h6>Ore inviate: {{ore.oreComunicate}}</h6>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/convalida-ore-lista/convalida-ore-lista.html"*/,
+            selector: 'page-convalida-ore-lista',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/convalida-ore-lista/convalida-ore-lista.html"*/'<!--\n  Generated template for the ConvalidaOreListaPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n<ion-navbar>\n  <button ion-button menuToggle>\n    <ion-icon name="menu"></ion-icon>\n  </button>\n  <ion-title>Convalida Ore</ion-title>\n</ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <p text-center>\n    Seleziona il task e convalida le ore.\n  </p>\n  <br>\n  <ion-list>\n    <button (click)="convalidaOre(ore.user, ore.oreComunicate, ore.attivita, ore.idTask)" ion-item *ngFor="let ore of oreInviate">\n      <h2>{{ore.user | uppercase}}</h2>\n      <h4>Attivit&agrave;: <strong>{{ore.attivita}}</strong></h4>\n      <h6>Ore inviate: {{ore.oreComunicate}}</h6>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/convalida-ore-lista/convalida-ore-lista.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
     ], ConvalidaOreListaPage);
@@ -467,9 +467,9 @@ var ConvalidaOreListaPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreaProgettoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_progetto_home_progetto__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -513,7 +513,7 @@ var CreaProgettoPage = (function () {
             nome: this.nomeProgetto,
             user: this.userDaPassare
         };
-        this.http.post("http://localhost:80/WASP/apiCreaProgetto.php", postParams, options)
+        this.http.post("http://localhost:8888/WASP/apiCreaProgetto.php", postParams, options)
             .subscribe(function (data) {
             if (data['_body'] == "0") {
                 console.log("Progetto non creato!");
@@ -529,7 +529,7 @@ var CreaProgettoPage = (function () {
     };
     CreaProgettoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-crea-progetto',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/crea-progetto/crea-progetto.html"*/'<!--\n  Generated template for the CreaProgettoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Crea Progetto</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <p text-center>\n    Inserisci il nome del progetto <br>\n    Successivamente recati alla <a href="www.google.it">pagina</a> e importa il progetto in formato XML.\n  </p>\n  <form (ngSubmit)="creaProgetto()" style="margin-top: 50px;!important;">\n    <ion-item>\n      <ion-label>Nome progetto</ion-label>\n      <ion-input type="text" [(ngModel)]="nomeProgetto" name="nome"></ion-input>\n    </ion-item>\n    <br>\n    <button ion-button type="submit" block>Crea progetto</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/crea-progetto/crea-progetto.html"*/,
+            selector: 'page-crea-progetto',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/crea-progetto/crea-progetto.html"*/'<!--\n  Generated template for the CreaProgettoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Crea Progetto</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <p text-center>\n    Inserisci il nome del progetto <br>\n    Successivamente recati alla <a href="www.google.it">pagina</a> e importa il progetto in formato XML.\n  </p>\n  <form (ngSubmit)="creaProgetto()" style="margin-top: 50px;!important;">\n    <ion-item>\n      <ion-label>Nome progetto</ion-label>\n      <ion-input type="text" [(ngModel)]="nomeProgetto" name="nome"></ion-input>\n    </ion-item>\n    <br>\n    <button ion-button type="submit" block>Crea progetto</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/crea-progetto/crea-progetto.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
     ], CreaProgettoPage);
@@ -547,9 +547,9 @@ var CreaProgettoPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreaTaskPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__selezionaprogetto_selezionaprogetto__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__selezionaprogetto_selezionaprogetto__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_progetto_home_progetto__ = __webpack_require__(34);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -609,7 +609,7 @@ var CreaTaskPage = (function () {
                 attivita: this.task.attivita,
                 dataInizio: this.task.dataInizio
             };
-            this.http.post("http://localhost:80/WASP/apiAggiungiTask.php", postParams, options)
+            this.http.post("http://localhost:8888/WASP/apiAggiungiTask.php", postParams, options)
                 .subscribe(function (data) {
                 alert_1.present();
                 _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_progetto_home_progetto__["a" /* HomeProgettoPage */]);
@@ -621,7 +621,7 @@ var CreaTaskPage = (function () {
     };
     CreaTaskPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-crea-task',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/crea-task/crea-task.html"*/'<!--\n  Generated template for the CreaTaskPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Crea task</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n<p text-center>\n  Riempi i campi sottostanti e aggiungi un nuovo task al progetto.\n</p>\n\n  <form (ngSubmit)="creaTask()">\n    <ion-item>\n      <ion-label>Nome</ion-label>\n      <ion-textarea [(ngModel)]="task.attivita" name="attivita" placeholder="Inserisci nome attività"></ion-textarea>\n    </ion-item>\n    <ion-item>\n      <ion-label>Data Inizio</ion-label>\n      <ion-datetime displayFormat="MM DD YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="task.dataInizio" name="dataInizio" >\n      </ion-datetime>\n    </ion-item>\n    <br>\n    <button ion-button type="submit" block>Crea Task</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/crea-task/crea-task.html"*/,
+            selector: 'page-crea-task',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/crea-task/crea-task.html"*/'<!--\n  Generated template for the CreaTaskPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Crea task</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n<p text-center>\n  Riempi i campi sottostanti e aggiungi un nuovo task al progetto.\n</p>\n\n  <form (ngSubmit)="creaTask()">\n    <ion-item>\n      <ion-label>Nome</ion-label>\n      <ion-textarea [(ngModel)]="task.attivita" name="attivita" placeholder="Inserisci nome attività"></ion-textarea>\n    </ion-item>\n    <ion-item>\n      <ion-label>Data Inizio</ion-label>\n      <ion-datetime displayFormat="MM DD YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="task.dataInizio" name="dataInizio" >\n      </ion-datetime>\n    </ion-item>\n    <br>\n    <button ion-button type="submit" block>Crea Task</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/crea-task/crea-task.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
     ], CreaTaskPage);
@@ -667,7 +667,7 @@ var DettaglioTaskPage = (function () {
     }
     DettaglioTaskPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-dettaglio-task',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/dettaglio-task/dettaglio-task.html"*/'<!--\n  Generated template for the DettaglioTaskPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ attivita }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-list>\n    <h2 text-center="">Dettaglio task</h2>\n    <ion-item>\n      <h4> Progetto <span float-right><strong>{{ nomeProgetto | uppercase}} </strong></span></h4>\n    </ion-item>\n    <ion-item>\n      <h4> Attivita <span float-right><strong>{{ attivita | uppercase}} </strong></span></h4>\n    </ion-item>\n    <ion-item>\n      <h4>Data Inizio <span float-right><strong>{{ dataInizio | date:"medium"}}</strong></span></h4>\n    </ion-item>\n    <h2 text-center="" [hidden]="!oreComunicate">Task Completato</h2>\n    <ion-item [hidden]="!oreComunicate">\n      <h4> Ore Comunicate <span float-right><strong>{{ oreComunicate | uppercase}} </strong></span></h4>\n    </ion-item>\n\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/dettaglio-task/dettaglio-task.html"*/,
+            selector: 'page-dettaglio-task',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/dettaglio-task/dettaglio-task.html"*/'<!--\n  Generated template for the DettaglioTaskPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ attivita }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-list>\n    <h2 text-center="">Dettaglio task</h2>\n    <ion-item>\n      <h4> Progetto <span float-right><strong>{{ nomeProgetto | uppercase}} </strong></span></h4>\n    </ion-item>\n    <ion-item>\n      <h4> Attivita <span float-right><strong>{{ attivita | uppercase}} </strong></span></h4>\n    </ion-item>\n    <ion-item>\n      <h4>Data Inizio <span float-right><strong>{{ dataInizio | date:"medium"}}</strong></span></h4>\n    </ion-item>\n    <h2 text-center="" [hidden]="!oreComunicate">Task Completato</h2>\n    <ion-item [hidden]="!oreComunicate">\n      <h4> Ore Comunicate <span float-right><strong>{{ oreComunicate | uppercase}} </strong></span></h4>\n    </ion-item>\n\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/dettaglio-task/dettaglio-task.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
     ], DettaglioTaskPage);
@@ -685,9 +685,9 @@ var DettaglioTaskPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_tm_home_tm__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -727,7 +727,7 @@ var LoginPage = (function () {
                 username: this.login.username,
                 password: this.login.password,
             };
-            this.http.post("http://localhost:80/WASP/apiLogin.php", postParams, options)
+            this.http.post("http://localhost:8888/WASP/apiLogin.php", postParams, options)
                 .subscribe(function (data) {
                 if (data['_body'] == "PM") {
                     _this.storage.set('username', _this.login.username);
@@ -757,7 +757,7 @@ var LoginPage = (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Accedi</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form (ngSubmit)="logForm()">\n    <ion-item>\n      <ion-label>Username</ion-label>\n      <ion-input type="text" [(ngModel)]="login.username" name="title"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Password</ion-label>\n      <ion-input type="password" [(ngModel)]="login.password" name="title"></ion-input>\n    </ion-item>\n    <br>\n    <button ion-button type="submit" block>Accedi</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/login/login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Accedi</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form (ngSubmit)="logForm()">\n    <ion-item>\n      <ion-label>Username</ion-label>\n      <ion-input type="text" [(ngModel)]="login.username" name="title"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Password</ion-label>\n      <ion-input type="password" [(ngModel)]="login.password" name="title"></ion-input>\n    </ion-item>\n    <br>\n    <button ion-button type="submit" block>Accedi</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/login/login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
     ], LoginPage);
@@ -775,8 +775,8 @@ var LoginPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_tm_home_tm__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -819,7 +819,7 @@ var SignupPage = (function () {
                 password: this.signup.password,
                 tipo: this.signup.tipo,
             };
-            this.http.post("http://localhost:80/WASP/apiRegistraUtente.php", postParams, options)
+            this.http.post("http://localhost:8888/WASP/apiRegistraUtente.php", postParams, options)
                 .subscribe(function (data) {
                 if (data['_body'] == 1) {
                     _this.storage.set('username', _this.signup.username);
@@ -847,7 +847,7 @@ var SignupPage = (function () {
     };
     SignupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-signup',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/signup/signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Registrati</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form (ngSubmit)="logForm()">\n    <ion-item>\n      <ion-label>Nome</ion-label>\n      <ion-input type="text" [(ngModel)]="signup.nome" name="nome"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Cognome</ion-label>\n      <ion-input type="text" [(ngModel)]="signup.cognome" name="cognome"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Username</ion-label>\n      <ion-input type="text" [(ngModel)]="signup.username" name="username"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Password</ion-label>\n      <ion-input type="password" [(ngModel)]="signup.password" name="password"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Tipo</ion-label>\n      <ion-select [(ngModel)]="signup.tipo" name="select">\n        <ion-option value="0">Project Manager</ion-option>\n        <ion-option value="1">Team Member</ion-option>\n      </ion-select>\n    </ion-item>\n    <br>\n    <button ion-button type="submit" block>Registrati</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/signup/signup.html"*/,
+            selector: 'page-signup',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/signup/signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Registrati</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form (ngSubmit)="logForm()">\n    <ion-item>\n      <ion-label>Nome</ion-label>\n      <ion-input type="text" [(ngModel)]="signup.nome" name="nome"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Cognome</ion-label>\n      <ion-input type="text" [(ngModel)]="signup.cognome" name="cognome"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Username</ion-label>\n      <ion-input type="text" [(ngModel)]="signup.username" name="username"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Password</ion-label>\n      <ion-input type="password" [(ngModel)]="signup.password" name="password"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Tipo</ion-label>\n      <ion-select [(ngModel)]="signup.tipo" name="select">\n        <ion-option value="0">Project Manager</ion-option>\n        <ion-option value="1">Team Member</ion-option>\n      </ion-select>\n    </ion-item>\n    <br>\n    <button ion-button type="submit" block>Registrati</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/signup/signup.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
     ], SignupPage);
@@ -866,8 +866,8 @@ var SignupPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__invio_ore_invio_ore__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -926,7 +926,7 @@ var InvioOreSelTaskPage = (function () {
         var postParams = {
             username: this.username
         };
-        this.http.post("http://localhost:80/WASP/apiTasksInCorsoTeamMember.php", postParams, options).map(function (res) { return res.json(); })
+        this.http.post("http://localhost:8888/WASP/apiTasksInCorsoTeamMember.php", postParams, options).map(function (res) { return res.json(); })
             .subscribe(function (data) {
             _this.tasks = data;
         }, function (error) {
@@ -935,7 +935,7 @@ var InvioOreSelTaskPage = (function () {
     };
     InvioOreSelTaskPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-invio-ore-sel-task',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/invio-ore-sel-task/invio-ore-sel-task.html"*/'<!--\n  Generated template for the InvioOreSelTaskPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Comunica ore</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <p text-center>\n    Seleziona il task per la quale desideri comunicare le ore\n  </p>\n  <br>\n  <ion-list>\n    <button ion-item (click)="inviaOre(username ,task.nome, task.idTask, task.oreComunicate)" *ngFor="let task of tasks">\n      <h2> Progetto <strong>{{ task.nome}} </strong></h2>\n      <h3> <strong>{{ task.attivita }}</strong> <!--<span [hidden]="!task.oreComunicate" class="right">Ore già comunicate!</span>--></h3>\n      <h3> {{ task.dataInizio | date:"medium" }} </h3>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/invio-ore-sel-task/invio-ore-sel-task.html"*/,
+            selector: 'page-invio-ore-sel-task',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/invio-ore-sel-task/invio-ore-sel-task.html"*/'<!--\n  Generated template for the InvioOreSelTaskPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Comunica ore</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <p text-center>\n    Seleziona il task per la quale desideri comunicare le ore\n  </p>\n  <br>\n  <ion-list>\n    <button ion-item (click)="inviaOre(username ,task.nome, task.idTask, task.oreComunicate)" *ngFor="let task of tasks">\n      <h2> Progetto <strong>{{ task.nome}} </strong></h2>\n      <h3> <strong>{{ task.attivita }}</strong> <!--<span [hidden]="!task.oreComunicate" class="right">Ore già comunicate!</span>--></h3>\n      <h3> {{ task.dataInizio | date:"medium" }} </h3>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/invio-ore-sel-task/invio-ore-sel-task.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], InvioOreSelTaskPage);
@@ -953,7 +953,7 @@ var InvioOreSelTaskPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InvioOrePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_tm_home_tm__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1003,7 +1003,7 @@ var InvioOrePage = (function () {
                 ore: this.oreInserite,
                 user: this.username
             };
-            this.http.post("http://localhost:80/WASP/apiInviaOre.php", postParams, options)
+            this.http.post("http://localhost:8888/WASP/apiInviaOre.php", postParams, options)
                 .subscribe(function (data) {
                 alert_1.present();
                 _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_tm_home_tm__["a" /* HomeTmPage */]);
@@ -1015,7 +1015,7 @@ var InvioOrePage = (function () {
     };
     InvioOrePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-invio-ore',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/invio-ore/invio-ore.html"*/'<!--\n  Generated template for the InvioOrePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Comunica ore</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <p text-center>\n    Inserisci le ore da comunicare al Project Manager\n  </p>\n  <form (ngSubmit)="comunicaOre()">\n    <ion-item>\n      <ion-label>Ore</ion-label>\n      <ion-input type="number" pattern="[0-9]*" [(ngModel)]="oreInserite" name="ore"></ion-input>\n    </ion-item>\n    <br>\n    <button ion-button type="submit" block>Comunica ore</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/invio-ore/invio-ore.html"*/,
+            selector: 'page-invio-ore',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/invio-ore/invio-ore.html"*/'<!--\n  Generated template for the InvioOrePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Comunica ore</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <p text-center>\n    Inserisci le ore da comunicare al Project Manager\n  </p>\n  <form (ngSubmit)="comunicaOre()">\n    <ion-item>\n      <ion-label>Ore</ion-label>\n      <ion-input type="number" pattern="[0-9]*" [(ngModel)]="oreInserite" name="ore"></ion-input>\n    </ion-item>\n    <br>\n    <button ion-button type="submit" block>Comunica ore</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/invio-ore/invio-ore.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
     ], InvioOrePage);
@@ -1033,9 +1033,9 @@ var InvioOrePage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModificaBudgetPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__selezionaprogetto_selezionaprogetto__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__selezionaprogetto_selezionaprogetto__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_progetto_home_progetto__ = __webpack_require__(34);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1090,7 +1090,7 @@ var ModificaBudgetPage = (function () {
                 codice: this.codiceProgetto,
                 budget: this.nuovoBudget
             };
-            this.http.post("http://localhost:80/WASP/apiAggiornaBudgetProgetto.php", postParams, options)
+            this.http.post("http://localhost:8888/WASP/apiAggiornaBudgetProgetto.php", postParams, options)
                 .subscribe(function (data) {
                 alert_1.present();
                 _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_progetto_home_progetto__["a" /* HomeProgettoPage */]);
@@ -1115,7 +1115,7 @@ var ModificaBudgetPage = (function () {
     };
     ModificaBudgetPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-modifica-budget',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/modifica-budget/modifica-budget.html"*/'<!--\n  Generated template for the ModificaBudgetPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Aggiorna Budget</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <p text-center>\n    Inserisci il nuovo budget per il progetto: <strong>{{nomeProgetto | uppercase}}</strong>\n  </p>\n\n  <form (ngSubmit)="modificaBudget()" style="margin-top: 50px;!important;">\n    <ion-item>\n      <ion-label>Budget</ion-label>\n      <ion-input type="number" pattern="[0-9]*" [(ngModel)]="nuovoBudget" name="budget"></ion-input>\n    </ion-item>\n    <br>\n    <button ion-button type="submit" block>Aggiorna Budget</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/modifica-budget/modifica-budget.html"*/,
+            selector: 'page-modifica-budget',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/modifica-budget/modifica-budget.html"*/'<!--\n  Generated template for the ModificaBudgetPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Aggiorna Budget</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <p text-center>\n    Inserisci il nuovo budget per il progetto: <strong>{{nomeProgetto | uppercase}}</strong>\n  </p>\n\n  <form (ngSubmit)="modificaBudget()" style="margin-top: 50px;!important;">\n    <ion-item>\n      <ion-label>Budget</ion-label>\n      <ion-input type="number" pattern="[0-9]*" [(ngModel)]="nuovoBudget" name="budget"></ion-input>\n    </ion-item>\n    <br>\n    <button ion-button type="submit" block>Aggiorna Budget</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/modifica-budget/modifica-budget.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
     ], ModificaBudgetPage);
@@ -1133,8 +1133,8 @@ var ModificaBudgetPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModificaRicavoRisorsaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__visualizza_members_visualizza_members__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1187,7 +1187,7 @@ var ModificaRicavoRisorsaPage = (function () {
             ricavo: this.nuovoRicavo,
             user: this.usernameMember
         };
-        this.http.post("http://localhost:80/WASP/apiAggiornaRicavoMember.php", postParams, options).map(function (res) { return res.json(); })
+        this.http.post("http://localhost:8888/WASP/apiAggiornaRicavoMember.php", postParams, options).map(function (res) { return res.json(); })
             .subscribe(function (data) {
             alert.present();
         }, function (error) {
@@ -1196,7 +1196,7 @@ var ModificaRicavoRisorsaPage = (function () {
     };
     ModificaRicavoRisorsaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-modifica-ricavo-risorsa',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/modifica-ricavo-risorsa/modifica-ricavo-risorsa.html"*/'<!--\n  Generated template for the ModificaRicavoRisorsaPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <ion-title>Aggiorna Ricavo</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <form (ngSubmit)="modifica()" style="margin-top: 50px;!important;">\n    <ion-item>\n      <ion-label>Ricavo</ion-label>\n      <ion-input type="number" pattern="[0-9]*" [(ngModel)]="nuovoRicavo" name="ricavo"></ion-input>\n    </ion-item>\n    <br>\n    <button ion-button type="submit" block>Aggiorna Ricavo</button>\n  </form>\n\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/modifica-ricavo-risorsa/modifica-ricavo-risorsa.html"*/,
+            selector: 'page-modifica-ricavo-risorsa',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/modifica-ricavo-risorsa/modifica-ricavo-risorsa.html"*/'<!--\n  Generated template for the ModificaRicavoRisorsaPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <ion-title>Aggiorna Ricavo</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <form (ngSubmit)="modifica()" style="margin-top: 50px;!important;">\n    <ion-item>\n      <ion-label>Ricavo</ion-label>\n      <ion-input type="number" pattern="[0-9]*" [(ngModel)]="nuovoRicavo" name="ricavo"></ion-input>\n    </ion-item>\n    <br>\n    <button ion-button type="submit" block>Aggiorna Ricavo</button>\n  </form>\n\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/modifica-ricavo-risorsa/modifica-ricavo-risorsa.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], ModificaRicavoRisorsaPage);
@@ -1216,10 +1216,10 @@ var ModificaRicavoRisorsaPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modifica_risorsa_modifica_risorsa__ = __webpack_require__(130);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modifica_ricavo_risorsa_modifica_ricavo_risorsa__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1278,7 +1278,7 @@ var ProfiloMemberPage = (function () {
             codice: this.codiceProgetto,
             username: this.usernameMembro
         };
-        this.http.post("http://localhost:80/WASP/apiListaTasksTeamMember.php", postParams, options).map(function (res) { return res.json(); })
+        this.http.post("http://localhost:8888/WASP/apiListaTasksTeamMember.php", postParams, options).map(function (res) { return res.json(); })
             .subscribe(function (data) {
             _this.tasks = data;
         }, function (error) {
@@ -1287,7 +1287,7 @@ var ProfiloMemberPage = (function () {
     };
     ProfiloMemberPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-profilo-member',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/profilo-member/profilo-member.html"*/'<!--\n  Generated template for the ProfiloMemberPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Team Members</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n    <h2>Informazioni</h2>\n    <ion-item>\n      <h4> Nome <span float-right><strong>{{ nomeMembro | uppercase}} </strong></span></h4>\n    </ion-item>\n    <ion-item>\n      <h4> Cognome <span float-right><strong>{{ cognomeMembro | uppercase }} </strong></span></h4>\n    </ion-item>\n    <button ion-item (click)="modificaCosto()">\n      <h4>Costo <span float-right><strong>{{ costoMembro }}€/gg</strong></span></h4>\n    </button>\n    <button ion-item (click)="modificaRicavo()">\n      <h4>Ricavo <span float-right><strong>{{ ricavoMembro }}€/gg</strong></span></h4>\n    </button>\n  </ion-list>\n\n  <h2>Task in corso</h2>\n  <ion-list>\n    <ion-item *ngFor="let task of tasks">\n      <h2>{{task.attivita | uppercase}}</h2>\n      <h4>Progetto: {{task.nome | uppercase}}</h4>\n      <h6>Iniziato: {{task.dataInizio | date:"medium"}}</h6>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/profilo-member/profilo-member.html"*/,
+            selector: 'page-profilo-member',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/profilo-member/profilo-member.html"*/'<!--\n  Generated template for the ProfiloMemberPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Team Members</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n    <h2>Informazioni</h2>\n    <ion-item>\n      <h4> Nome <span float-right><strong>{{ nomeMembro | uppercase}} </strong></span></h4>\n    </ion-item>\n    <ion-item>\n      <h4> Cognome <span float-right><strong>{{ cognomeMembro | uppercase }} </strong></span></h4>\n    </ion-item>\n    <button ion-item (click)="modificaCosto()">\n      <h4>Costo <span float-right><strong>{{ costoMembro }}€/gg</strong></span></h4>\n    </button>\n    <button ion-item (click)="modificaRicavo()">\n      <h4>Ricavo <span float-right><strong>{{ ricavoMembro }}€/gg</strong></span></h4>\n    </button>\n  </ion-list>\n\n  <h2>Task in corso</h2>\n  <ion-list>\n    <ion-item *ngFor="let task of tasks">\n      <h2>{{task.attivita | uppercase}}</h2>\n      <h4>Progetto: {{task.nome | uppercase}}</h4>\n      <h6>Iniziato: {{task.dataInizio | date:"medium"}}</h6>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/profilo-member/profilo-member.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
     ], ProfiloMemberPage);
@@ -1305,8 +1305,8 @@ var ProfiloMemberPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModificaRisorsaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__visualizza_members_visualizza_members__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1360,7 +1360,7 @@ var ModificaRisorsaPage = (function () {
             costo: this.nuovoCosto,
             user: this.usernameMember
         };
-        this.http.post("http://localhost:80/WASP/apiAggiornaCostoMember.php", postParams, options).map(function (res) { return res.json(); })
+        this.http.post("http://localhost:8888/WASP/apiAggiornaCostoMember.php", postParams, options).map(function (res) { return res.json(); })
             .subscribe(function (data) {
             alert.present();
         }, function (error) {
@@ -1369,7 +1369,7 @@ var ModificaRisorsaPage = (function () {
     };
     ModificaRisorsaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-modifica-risorsa',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/modifica-risorsa/modifica-risorsa.html"*/'<!--\n  Generated template for the ModificaRisorsaPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <ion-title>Aggiorna Costo</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <form (ngSubmit)="modifica()" style="margin-top: 50px;!important;">\n    <ion-item>\n      <ion-label>Costo</ion-label>\n      <ion-input type="number" pattern="[0-9]*" [(ngModel)]="nuovoCosto" name="costo"></ion-input>\n    </ion-item>\n    <br>\n    <button ion-button type="submit" block>Aggiorna Costo</button>\n  </form>\n\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/modifica-risorsa/modifica-risorsa.html"*/,
+            selector: 'page-modifica-risorsa',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/modifica-risorsa/modifica-risorsa.html"*/'<!--\n  Generated template for the ModificaRisorsaPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <ion-title>Aggiorna Costo</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <form (ngSubmit)="modifica()" style="margin-top: 50px;!important;">\n    <ion-item>\n      <ion-label>Costo</ion-label>\n      <ion-input type="number" pattern="[0-9]*" [(ngModel)]="nuovoCosto" name="costo"></ion-input>\n    </ion-item>\n    <br>\n    <button ion-button type="submit" block>Aggiorna Costo</button>\n  </form>\n\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/modifica-risorsa/modifica-risorsa.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], ModificaRisorsaPage);
@@ -1387,10 +1387,10 @@ var ModificaRisorsaPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VisualizzaAssociatiTaskPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1421,6 +1421,8 @@ var VisualizzaAssociatiTaskPage = (function () {
         this.codiceTask = this.navParams.get("idTask");
         this.storage.get('codProgetto').then(function (cod) {
             _this.codiceProgetto = cod;
+            console.log("codiceTask: " + _this.codiceTask);
+            console.log("codiceProgetto: " + cod);
             _this.chiamataPost();
         });
     }
@@ -1448,7 +1450,7 @@ var VisualizzaAssociatiTaskPage = (function () {
     };
     VisualizzaAssociatiTaskPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-visualizza-associati-task',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/visualizza-associati-task/visualizza-associati-task.html"*/'<!--\n  Generated template for the VisualizzaAssociatiTaskPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Membri associati</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <p text-center>\n    Visualizza i membri a cui &egrave; stato assegnato il task\n  </p>\n  <br>\n  <ion-list>\n    <ion-item *ngFor="let utente of utenti">\n      <h2> <strong>{{ utente.nome | uppercase}} {{utente.cognome | uppercase}} </strong></h2>\n      <h3 *ngIf="utente.posizione"> <strong>Team Member</strong></h3>\n      <h4> Costo giornaliero: <strong>{{ utente.costo }}€</strong></h4>\n      <h4> Ricavo giornaliero: <strong>{{ utente.ricavo }}€</strong></h4>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/visualizza-associati-task/visualizza-associati-task.html"*/,
+            selector: 'page-visualizza-associati-task',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/visualizza-associati-task/visualizza-associati-task.html"*/'<!--\n  Generated template for the VisualizzaAssociatiTaskPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Membri associati</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <p text-center>\n    Visualizza i membri a cui &egrave; stato assegnato il task <strong>{{attivitaTask | uppercase}}</strong>\n  </p>\n  <br>\n  <ion-list>\n    <ion-item *ngFor="let utente of utenti">\n      <h2> <strong>{{ utente.nome | uppercase}} {{utente.cognome | uppercase}} </strong></h2>\n      <h3 *ngIf="utente.posizione"> <strong>Team Member</strong></h3>\n      <h4> Costo giornaliero: <strong>{{ utente.costo }}€</strong></h4>\n      <h4> Ricavo giornaliero: <strong>{{ utente.ricavo }}€</strong></h4>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/visualizza-associati-task/visualizza-associati-task.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
     ], VisualizzaAssociatiTaskPage);
@@ -1467,6 +1469,10 @@ var VisualizzaAssociatiTaskPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__visualizza_associati_task_visualizza_associati_task__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1479,6 +1485,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 /**
  * Generated class for the VisualizzaTaskPage page.
  *
@@ -1486,26 +1495,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var VisualizzaTaskPage = (function () {
-    function VisualizzaTaskPage(navCtrl, navParams) {
+    function VisualizzaTaskPage(navCtrl, navParams, http, storage) {
+        var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.tasks = [
-            { codice: "1", attivita: "RAD", nome: "NomeProgetto", dataInizio: "2017-10-19T09:00:00" },
-            { codice: "2", attivita: "SDD", nome: "NomeProgetto", dataInizio: "2017-10-19T09:00:00" },
-            { codice: "3", attivita: "ODD", nome: "NomeProgetto", dataInizio: "2017-10-19T09:00:00" }
-        ];
+        this.http = http;
+        this.storage = storage;
+        this.storage.get('codProgetto').then(function (codice) {
+            _this.codiceProgetto = codice;
+            _this.chiamataPost();
+        });
     }
+    VisualizzaTaskPage.prototype.chiamataPost = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        headers.append('Access-Control-Allow-Origin', '*');
+        headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+        var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var postParams = {
+            codice: this.codiceProgetto,
+        };
+        this.http.post("http://localhost:80/WASP/apiListaTasksAssociati.php", postParams, options).map(function (res) { return res.json(); })
+            .subscribe(function (data) {
+            _this.tasks = data;
+        }, function (error) {
+            console.log(error); // Error getting the data
+        });
+    };
     VisualizzaTaskPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad VisualizzaTaskPage');
     };
     VisualizzaTaskPage.prototype.visualizzaAssociati = function (attivitaTask, idTask) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__visualizza_associati_task_visualizza_associati_task__["a" /* VisualizzaAssociatiTaskPage */], { "attivita": attivitaTask, "idTask": idTask });
+        console.log("Invio idTask: " + idTask);
     };
     VisualizzaTaskPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-visualizza-task',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/visualizza-task/visualizza-task.html"*/'<!--\n  Generated template for the VisualizzaTaskPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Visualizza Tasks</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n\n<ion-content padding>\n  <p text-center>\n    Seleziona un task per visualizzare le persone assegnate al task\n  </p>\n  <br>\n  <ion-list>\n    <button (click)="visualizzaAssociati(task.attivita, task.idTask)" ion-item *ngFor="let task of tasks">\n      <h2>{{task.attivita | uppercase}}</h2>\n      <h6>Iniziato: {{task.dataInizio | date:"medium"}}</h6>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/visualizza-task/visualizza-task.html"*/,
+            selector: 'page-visualizza-task',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/visualizza-task/visualizza-task.html"*/'<!--\n  Generated template for the VisualizzaTaskPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Dettagli Tasks</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n\n<ion-content padding>\n  <p text-center>\n    Seleziona un task per visualizzarne i dettagli.\n  </p>\n  <br>\n  <ion-list>\n    <button (click)="visualizzaAssociati(task.user, task.attivita, task.wbs, codiceProgetto)" ion-item *ngFor="let task of tasks">\n      <h2><strong>{{task.attivita | uppercase}}</strong></h2>\n      <h6>Inizio: {{task.dataInizio | date:"medium"}}</h6>\n      <h6>Fine: {{task.dataFine | date:"medium"}}</h6>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/visualizza-task/visualizza-task.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]])
     ], VisualizzaTaskPage);
     return VisualizzaTaskPage;
 }());
@@ -1560,11 +1590,11 @@ var map = {
 		16
 	],
 	"../pages/dettaglio-task/dettaglio-task.module": [
-		482,
+		481,
 		15
 	],
 	"../pages/home-progetto/home-progetto.module": [
-		481,
+		482,
 		14
 	],
 	"../pages/home-tm/home-tm.module": [
@@ -1604,11 +1634,11 @@ var map = {
 		5
 	],
 	"../pages/signup/signup.module": [
-		493,
+		492,
 		4
 	],
 	"../pages/visualizza-associati-task/visualizza-associati-task.module": [
-		492,
+		493,
 		3
 	],
 	"../pages/visualizza-members/visualizza-members.module": [
@@ -1640,17 +1670,17 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 27:
+/***/ 28:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelezionaprogettoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_progetto_home_progetto__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1686,7 +1716,7 @@ var SelezionaprogettoPage = (function () {
         this.navParams = navParams;
         this.storage = storage;
         this.http = http;
-        this.http.get("http://localhost:80/WASP/apiListaProgetti.php").map(function (res) { return res.json(); })
+        this.http.get("http://localhost:8888/WASP/apiListaProgetti.php").map(function (res) { return res.json(); })
             .subscribe(function (data) {
             _this.progetti = data;
             console.log(data);
@@ -1702,7 +1732,7 @@ var SelezionaprogettoPage = (function () {
     };
     SelezionaprogettoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-selezionaprogetto',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/selezionaprogetto/selezionaprogetto.html"*/'<!--\n  Generated template for the SelezionaprogettoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Seleziona Progetto</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <h3 text-center>Seleziona un progetto</h3>\n\n  <ion-list class="lista-progetti">\n    <ion-item (click)="apriProgetto(progetto.codice, progetto.nome)"  *ngFor="let progetto of progetti">\n      <button class="bottoni-progetto">{{progetto.nome}}</button>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/selezionaprogetto/selezionaprogetto.html"*/,
+            selector: 'page-selezionaprogetto',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/selezionaprogetto/selezionaprogetto.html"*/'<!--\n  Generated template for the SelezionaprogettoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Seleziona Progetto</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <h3 text-center>Seleziona un progetto</h3>\n\n  <ion-list class="lista-progetti">\n    <ion-item (click)="apriProgetto(progetto.codice, progetto.nome)"  *ngFor="let progetto of progetti">\n      <button class="bottoni-progetto">{{progetto.nome}}</button>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/selezionaprogetto/selezionaprogetto.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
     ], SelezionaprogettoPage);
@@ -1720,9 +1750,9 @@ var SelezionaprogettoPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeProgettoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__selezionaprogetto_selezionaprogetto__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__selezionaprogetto_selezionaprogetto__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_chart_js__ = __webpack_require__(400);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_chart_js__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1932,7 +1962,7 @@ var HomeProgettoPage = (function () {
     ], HomeProgettoPage.prototype, "lineCanvas", void 0);
     HomeProgettoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home-progetto',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/home-progetto/home-progetto.html"*/'<!--\n  Generated template for the HomeProgettoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title> Dashboard - {{nomeProgetto}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content >\n<!--\n  <ion-card>\n    <ion-card-header>\n      Bar Chart\n    </ion-card-header>\n    <ion-card-content>\n      <canvas #barCanvas></canvas>\n    </ion-card-content>\n  </ion-card>\n-->\n\n    <p text-center>\n        Codice Progetto: <span class="colora">{{codiceProgetto}}</span>\n    </p>\n\n  <ion-card>\n    <ion-card-header>\n      Spese/ricavi\n    </ion-card-header>\n    <ion-card-content>\n      <canvas #doughnutCanvas height="225px"></canvas>\n    </ion-card-content>\n  </ion-card>\n\n  <ion-card>\n    <ion-card-header>\n      Spese e ricavi mensili\n    </ion-card-header>\n    <ion-card-content>\n      <canvas #lineCanvas height="225px"></canvas>\n    </ion-card-content>\n  </ion-card>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/home-progetto/home-progetto.html"*/,
+            selector: 'page-home-progetto',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/home-progetto/home-progetto.html"*/'<!--\n  Generated template for the HomeProgettoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title> Dashboard - {{nomeProgetto}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content >\n<!--\n  <ion-card>\n    <ion-card-header>\n      Bar Chart\n    </ion-card-header>\n    <ion-card-content>\n      <canvas #barCanvas></canvas>\n    </ion-card-content>\n  </ion-card>\n-->\n\n    <p text-center>\n        Codice Progetto: <span class="colora">{{codiceProgetto}}</span>\n    </p>\n\n  <ion-card>\n    <ion-card-header>\n      Spese/ricavi\n    </ion-card-header>\n    <ion-card-content>\n      <canvas #doughnutCanvas height="225px"></canvas>\n    </ion-card-content>\n  </ion-card>\n\n  <ion-card>\n    <ion-card-header>\n      Ricavo Task\n    </ion-card-header>\n    <ion-card-content>\n      <canvas #barCanvas height="225px"></canvas>\n    </ion-card-content>\n  </ion-card>\n\n  <ion-card>\n    <ion-card-header>\n      Task Assegnati/Completati\n    </ion-card-header>\n    <ion-card-content>\n      <canvas #doughnut1Canvas height="225px"></canvas>\n    </ion-card-content>\n  </ion-card>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/home-progetto/home-progetto.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
     ], HomeProgettoPage);
@@ -1971,7 +2001,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_welcome_welcome__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(123);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_signup_signup__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_selezionaprogetto_selezionaprogetto__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_selezionaprogetto_selezionaprogetto__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_home_progetto_home_progetto__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_crea_progetto_crea_progetto__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_aggiungimember_aggiungimember__ = __webpack_require__(116);
@@ -1992,8 +2022,8 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_visualizza_associati_task_visualizza_associati_task__ = __webpack_require__(131);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_status_bar__ = __webpack_require__(344);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__ionic_native_splash_screen__ = __webpack_require__(347);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__ionic_storage__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__angular_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__ionic_storage__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__angular_http__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2075,8 +2105,8 @@ var AppModule = (function () {
                         { loadChildren: '../pages/convalida-ore-lista/convalida-ore-lista.module#ConvalidaOreListaPageModule', name: 'ConvalidaOreListaPage', segment: 'convalida-ore-lista', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/crea-progetto/crea-progetto.module#CreaProgettoPageModule', name: 'CreaProgettoPage', segment: 'crea-progetto', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/crea-task/crea-task.module#CreaTaskPageModule', name: 'CreaTaskPage', segment: 'crea-task', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home-progetto/home-progetto.module#HomeProgettoPageModule', name: 'HomeProgettoPage', segment: 'home-progetto', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/dettaglio-task/dettaglio-task.module#DettaglioTaskPageModule', name: 'DettaglioTaskPage', segment: 'dettaglio-task', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home-progetto/home-progetto.module#HomeProgettoPageModule', name: 'HomeProgettoPage', segment: 'home-progetto', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home-tm/home-tm.module#HomeTmPageModule', name: 'HomeTmPage', segment: 'home-tm', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/invio-ore-sel-task/invio-ore-sel-task.module#InvioOreSelTaskPageModule', name: 'InvioOreSelTaskPage', segment: 'invio-ore-sel-task', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/invio-ore/invio-ore.module#InvioOrePageModule', name: 'InvioOrePage', segment: 'invio-ore', priority: 'low', defaultHistory: [] },
@@ -2086,8 +2116,8 @@ var AppModule = (function () {
                         { loadChildren: '../pages/modifica-risorsa/modifica-risorsa.module#ModificaRisorsaPageModule', name: 'ModificaRisorsaPage', segment: 'modifica-risorsa', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profilo-member/profilo-member.module#ProfiloMemberPageModule', name: 'ProfiloMemberPage', segment: 'profilo-member', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/selezionaprogetto/selezionaprogetto.module#SelezionaprogettoPageModule', name: 'SelezionaprogettoPage', segment: 'selezionaprogetto', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/visualizza-associati-task/visualizza-associati-task.module#VisualizzaAssociatiTaskPageModule', name: 'VisualizzaAssociatiTaskPage', segment: 'visualizza-associati-task', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/visualizza-associati-task/visualizza-associati-task.module#VisualizzaAssociatiTaskPageModule', name: 'VisualizzaAssociatiTaskPage', segment: 'visualizza-associati-task', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/visualizza-members/visualizza-members.module#VisualizzaMembersPageModule', name: 'VisualizzaMembersPage', segment: 'visualizza-members', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/visualizza-task/visualizza-task.module#VisualizzaTaskPageModule', name: 'VisualizzaTaskPage', segment: 'visualizza-task', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
@@ -2144,10 +2174,10 @@ var AppModule = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeTmPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__welcome_welcome__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dettaglio_task_dettaglio_task__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2193,7 +2223,7 @@ var HomeTmPage = (function () {
         var postParams = {
             username: this.username
         };
-        this.http.post("http://localhost:80/WASP/apiTasksInCorsoTeamMember.php", postParams, options).map(function (res) { return res.json(); })
+        this.http.post("http://localhost:8888/WASP/apiTasksInCorsoTeamMember.php", postParams, options).map(function (res) { return res.json(); })
             .subscribe(function (data) {
             _this.tasks = data;
         }, function (error) {
@@ -2218,7 +2248,7 @@ var HomeTmPage = (function () {
     };
     HomeTmPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home-tm',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/home-tm/home-tm.html"*/'<!--\n  Generated template for the HomeTmPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home TM</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <h3 text-center>Benvenuto, {{username | uppercase}}</h3>\n  <hr/>\n\n  <h2>Notifiche</h2>\n  <ion-list>\n    <ion-item *ngFor="let notifica of notifiche">\n      <h2><strong>{{notifica.titolo}}</strong></h2>\n      <h4>{{notifica.descrizione}}</h4>\n      <h4>{{notifica.data}}</h4>\n    </ion-item>\n  </ion-list>\n\n  <h2>Task in corso</h2>\n  <ion-list>\n    <button (click)="dettaglioTask(task.nome, task.attivita, task.dataInizio, task.oreComunicate)" ion-item *ngFor="let task of tasks">\n      <!--<h2><strong>Progetto {{task.nome}}</strong></h2>-->\n      <h2><strong>{{task.attivita}}</strong></h2>\n      <h4>{{task.dataInizio | date:"medium"}}</h4>\n    </button>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/home-tm/home-tm.html"*/,
+            selector: 'page-home-tm',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/home-tm/home-tm.html"*/'<!--\n  Generated template for the HomeTmPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home TM</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <h3 text-center>Benvenuto, {{username | uppercase}}</h3>\n  <hr/>\n\n  <h2>Notifiche</h2>\n  <ion-list>\n    <ion-item *ngFor="let notifica of notifiche">\n      <h2><strong>{{notifica.titolo}}</strong></h2>\n      <h4>{{notifica.descrizione}}</h4>\n      <h4>{{notifica.data}}</h4>\n    </ion-item>\n  </ion-list>\n\n  <h2>Task in corso</h2>\n  <ion-list>\n    <button (click)="dettaglioTask(task.nome, task.attivita, task.dataInizio, task.oreComunicate)" ion-item *ngFor="let task of tasks">\n      <!--<h2><strong>Progetto {{task.nome}}</strong></h2>-->\n      <h2><strong>{{task.attivita}}</strong></h2>\n      <h4>{{task.dataInizio | date:"medium"}}</h4>\n    </button>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/home-tm/home-tm.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */]])
     ], HomeTmPage);
@@ -2492,8 +2522,8 @@ webpackContext.id = 430;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(344);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(347);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_welcome_welcome__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_selezionaprogetto_selezionaprogetto__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_selezionaprogetto_selezionaprogetto__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_progetto_home_progetto__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_crea_progetto_crea_progetto__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_aggiungimember_aggiungimember__ = __webpack_require__(116);
@@ -2621,7 +2651,7 @@ var MyApp = (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/app/app.html"*/'<!-- MENU PM -->\n<ion-menu id="loggedPM" [content]="content">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <ion-list-header>\n        Progetto\n      </ion-list-header>\n      <button menuClose ion-item *ngFor="let p of pagesProgetto" (click)="openPage(p)">\n        <ion-icon [name]="p.icon" item-left></ion-icon>\n        {{p.title}}\n      </button>\n    </ion-list>\n    <ion-list>\n      <ion-list-header>\n        Generale\n      </ion-list-header>\n      <button menuClose ion-item *ngFor="let p of pagesGenerale" (click)="openPage(p)">\n        <ion-icon [name]="p.icon" item-left></ion-icon>\n        {{p.title}}\n      </button>\n    </ion-list>\n    <ion-list>\n      <ion-list-header>\n        Impostazioni\n      </ion-list-header>\n      <button menuClose ion-item *ngFor="let p of pagesImpostazioni" (click)="openPage(p)">\n        <ion-icon [name]="p.icon" item-left></ion-icon>\n        {{p.title}}\n      </button>\n    </ion-list>\n\n\n  </ion-content>\n\n\n</ion-menu>\n\n<!-- MENU TM -->\n<ion-menu id="loggedTM" [content]="content">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <ion-list-header>\n        Progetto\n      </ion-list-header>\n      <button menuClose ion-item *ngFor="let p of pagesProgettoTM" (click)="openPage(p)">\n        <ion-icon [name]="p.icon" item-left></ion-icon>\n        {{p.title}}\n      </button>\n    </ion-list>\n    <ion-list>\n      <ion-list-header>\n        Impostazioni\n      </ion-list-header>\n      <button menuClose ion-item *ngFor="let p of pagesImpostazioni" (click)="openPage(p)">\n        <ion-icon [name]="p.icon" item-left></ion-icon>\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/app/app.html"*/'<!-- MENU PM -->\n<ion-menu id="loggedPM" [content]="content">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <ion-list-header>\n        Progetto\n      </ion-list-header>\n      <button menuClose ion-item *ngFor="let p of pagesProgetto" (click)="openPage(p)">\n        <ion-icon [name]="p.icon" item-left></ion-icon>\n        {{p.title}}\n      </button>\n    </ion-list>\n    <ion-list>\n      <ion-list-header>\n        Generale\n      </ion-list-header>\n      <button menuClose ion-item *ngFor="let p of pagesGenerale" (click)="openPage(p)">\n        <ion-icon [name]="p.icon" item-left></ion-icon>\n        {{p.title}}\n      </button>\n    </ion-list>\n    <ion-list>\n      <ion-list-header>\n        Impostazioni\n      </ion-list-header>\n      <button menuClose ion-item *ngFor="let p of pagesImpostazioni" (click)="openPage(p)">\n        <ion-icon [name]="p.icon" item-left></ion-icon>\n        {{p.title}}\n      </button>\n    </ion-list>\n\n\n  </ion-content>\n\n\n</ion-menu>\n\n<!-- MENU TM -->\n<ion-menu id="loggedTM" [content]="content">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <ion-list-header>\n        Progetto\n      </ion-list-header>\n      <button menuClose ion-item *ngFor="let p of pagesProgettoTM" (click)="openPage(p)">\n        <ion-icon [name]="p.icon" item-left></ion-icon>\n        {{p.title}}\n      </button>\n    </ion-list>\n    <ion-list>\n      <ion-list-header>\n        Impostazioni\n      </ion-list-header>\n      <button menuClose ion-item *ngFor="let p of pagesImpostazioni" (click)="openPage(p)">\n        <ion-icon [name]="p.icon" item-left></ion-icon>\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
@@ -2682,7 +2712,7 @@ var ListPage = (function () {
     };
     ListPage = ListPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-list',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/list/list.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>List</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-start></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-end>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/list/list.html"*/
+            selector: 'page-list',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/list/list.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>List</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-start></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-end>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/list/list.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
     ], ListPage);
@@ -2701,7 +2731,7 @@ var ListPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__welcome_welcome__ = __webpack_require__(53);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2740,7 +2770,7 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h3 text-center>Benvenuto, {{username | uppercase}}</h3>\n  <hr/>\n\n  <h2>Notifiche</h2>\n  <ion-list>\n    <ion-item *ngFor="let notifica of notifiche">\n      <h2><strong>{{notifica.titolo}}</strong></h2>\n      <h4>{{notifica.descrizione}}</h4>\n      <h4>{{notifica.data}}</h4>\n    </ion-item>\n  </ion-list>\n\n\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h3 text-center>Benvenuto, {{username | uppercase}}</h3>\n  <hr/>\n\n  <h2>Notifiche</h2>\n  <ion-list>\n    <ion-item *ngFor="let notifica of notifiche">\n      <h2><strong>{{notifica.titolo}}</strong></h2>\n      <h4>{{notifica.descrizione}}</h4>\n      <h4>{{notifica.data}}</h4>\n    </ion-item>\n  </ion-list>\n\n\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
     ], HomePage);
@@ -2760,7 +2790,7 @@ var HomePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(123);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup_signup__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_tm_home_tm__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2811,7 +2841,7 @@ var WelcomePage = (function () {
     };
     WelcomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-welcome',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/welcome/welcome.html"*/'<!--\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>WASP</ion-title>\n  </ion-navbar>\n</ion-header>\n-->\n\n<ion-content padding id="welcome" class="background">\n  <img src="assets/imgs/logo.png" class="logo"/>\n  <ion-grid>\n    <ion-row>\n      <ion-col>\n        <h1 text-center>WASP</h1>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <ion-grid >\n    <ion-row>\n      <ion-col center text-center>\n        <button ion-button full color="success" (click)="signup()">Registrati</button>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col center text-center>\n        <button ion-button full color="lightText" (click)="login()">Accedi</button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/welcome/welcome.html"*/,
+            selector: 'page-welcome',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/welcome/welcome.html"*/'<!--\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>WASP</ion-title>\n  </ion-navbar>\n</ion-header>\n-->\n\n<ion-content padding id="welcome" class="background">\n  <img src="assets/imgs/logo.png" class="logo"/>\n  <ion-grid>\n    <ion-row>\n      <ion-col>\n        <h1 text-center>WASP</h1>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <ion-grid >\n    <ion-row>\n      <ion-col center text-center>\n        <button ion-button full color="success" (click)="signup()">Registrati</button>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col center text-center>\n        <button ion-button full color="lightText" (click)="login()">Accedi</button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/welcome/welcome.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */]])
     ], WelcomePage);
@@ -2830,10 +2860,10 @@ var WelcomePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profilo_member_profilo_member__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__selezionaprogetto_selezionaprogetto__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__selezionaprogetto_selezionaprogetto__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2903,7 +2933,7 @@ var VisualizzaMembersPage = (function () {
     };
     VisualizzaMembersPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-visualizza-members',template:/*ion-inline-start:"/Users/macbookpro/Desktop/WASP/src/pages/visualizza-members/visualizza-members.html"*/'<!--\n  Generated template for the VisualizzaMembersPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Team Members</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <p text-center>\n    Seleziona un membro per visualizzarne le informazioni.\n  </p>\n<br>\n  <ion-list>\n    <button ion-item (click)="selezionaPersona(utente.cognome, utente.nome, utente.posizione, utente.costo, utente.ricavo, utente.user)" *ngFor="let utente of utenti">\n      <h2> <strong>{{ utente.nome | uppercase}} {{utente.cognome | uppercase}} </strong></h2>\n      <h3 *ngIf="utente.posizione"> <strong>Team Member</strong></h3>\n      <h4> Costo giornaliero: <strong>{{ utente.costo }}€</strong></h4>\n      <h4> Ricavo giornaliero: <strong>{{ utente.ricavo }}€</strong></h4>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/macbookpro/Desktop/WASP/src/pages/visualizza-members/visualizza-members.html"*/,
+            selector: 'page-visualizza-members',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/visualizza-members/visualizza-members.html"*/'<!--\n  Generated template for the VisualizzaMembersPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Team Members</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <p text-center>\n    Seleziona un membro per visualizzarne le informazioni.\n  </p>\n<br>\n  <ion-list>\n    <button ion-item (click)="selezionaPersona(utente.cognome, utente.nome, utente.posizione, utente.costo, utente.ricavo, utente.user)" *ngFor="let utente of utenti">\n      <h2> <strong>{{ utente.nome | uppercase}} {{utente.cognome | uppercase}} </strong></h2>\n      <h3 *ngIf="utente.posizione"> <strong>Team Member</strong></h3>\n      <h4> Costo giornaliero: <strong>{{ utente.costo }}€</strong></h4>\n      <h4> Ricavo giornaliero: <strong>{{ utente.ricavo }}€</strong></h4>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/visualizza-members/visualizza-members.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */]])
     ], VisualizzaMembersPage);

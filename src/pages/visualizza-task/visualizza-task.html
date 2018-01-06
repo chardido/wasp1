@@ -10,7 +10,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Visualizza Tasks</ion-title>
+    <ion-title>Dettagli Tasks</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -18,13 +18,14 @@
 
 <ion-content padding>
   <p text-center>
-    Seleziona un task per visualizzare le persone assegnate al task
+    Seleziona un task per visualizzarne i dettagli.
   </p>
   <br>
   <ion-list>
-    <button (click)="visualizzaAssociati(task.attivita, task.idTask)" ion-item *ngFor="let task of tasks">
-      <h2>{{task.attivita | uppercase}}</h2>
-      <h6>Iniziato: {{task.dataInizio | date:"medium"}}</h6>
+    <button (click)="visualizzaAssociati(task.user, task.attivita, task.wbs, codiceProgetto)" ion-item *ngFor="let task of tasks">
+      <h2><strong>{{task.attivita | uppercase}}</strong></h2>
+      <h6>Inizio: {{task.dataInizio | date:"medium"}}</h6>
+      <h6>Fine: {{task.dataFine | date:"medium"}}</h6>
     </button>
   </ion-list>
 </ion-content>

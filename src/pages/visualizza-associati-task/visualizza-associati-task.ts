@@ -19,25 +19,25 @@ import { Storage } from '@ionic/storage';
 })
 export class VisualizzaAssociatiTaskPage {
   codiceTask: string;
+  attivitaTask: string;
   codiceProgetto: string;
+  user: string;
   private utenti: { cognome: string, nome: string, user: string, posizione: number, costo: string, ricavo: string}[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, public http: Http) {
     this.codiceTask = this.navParams.get("idTask");
+    this.attivitaTask= this.navParams.get("attivita");
+    this.user= this.navParams.get("user");
+    this.codiceProgetto= this.navParams.get("codProgetto");
 
+    console.log("codTask: " + this.codiceTask+ "; attivita: " + this.attivitaTask + "; user: " + this.user + "; CodProgetto: " + this.codiceProgetto);
 
-    this.storage.get('codProgetto').then((cod) => {
-      this.codiceProgetto = cod;
-      console.log("codiceTask: "+this.codiceTask);
-      console.log("codiceProgetto: "+cod);
-
-      this.chiamataPost();
-    });
+    this.chiamataPost();
 
   }
 
   chiamataPost(){
-    console.log("Chiamata<br>Progetto: "+this.codiceProgetto+"<br>Task: "+this.codiceTask);
+    //console.log("Chiamata<br>Progetto: "+this.codiceProgetto+"<br>Task: "+this.codiceTask);
     var headers = new Headers();
     headers.append("Accept", 'application/json');
     headers.append('Content-Type', 'application/json' );
@@ -50,15 +50,12 @@ export class VisualizzaAssociatiTaskPage {
       codiceTask: this.codiceTask,
     }
 
-    this.http.post("http://localhost:80/WASP/apiListaMembriAssociatiAlTask.php", postParams, options).map(res => res.json())
+    this.http.post("http://localhost:8888/WASP/apiListaMembriAssociatiAlTask.php", postParams, options).map(res => res.json())
         .subscribe(data => {
           this.utenti = data;
         }, error => {
           console.log(error);// Error getting the data
         });
-  }
-
-  ionViewDidLoad() {
   }
 
 }

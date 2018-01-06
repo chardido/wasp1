@@ -19,12 +19,13 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'visualizza-task.html',
 })
 export class VisualizzaTaskPage {
-    private tasks: { idTask: string, attivita: string, dataInizio: string}[];
+    private tasks: { user: string, wbs: string, idTask: string, attivita: string, dataInizio: string, dataFine: string}[];
     codiceProgetto: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, private storage: Storage) {
       this.storage.get('codProgetto').then((codice) => {
           this.codiceProgetto = codice;
+          console.log("codProgetto: " + codice);
           this.chiamataPost();
       });
   }
@@ -41,7 +42,7 @@ export class VisualizzaTaskPage {
             codice: this.codiceProgetto,
         }
 
-        this.http.post("http://localhost:80/WASP/apiListaTasksAssociati.php", postParams, options).map(res => res.json())
+        this.http.post("http://localhost:8888/WASP/apiListaTasksAssociati.php", postParams, options).map(res => res.json())
             .subscribe(data => {
                 this.tasks = data;
             }, error => {
@@ -49,13 +50,9 @@ export class VisualizzaTaskPage {
             });
     }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad VisualizzaTaskPage');
-  }
-
-  visualizzaAssociati(attivitaTask: string, idTask: string){
-      this.navCtrl.push(VisualizzaAssociatiTaskPage,{"attivita":attivitaTask, "idTask":idTask});
-      console.log("Invio idTask: "+idTask)
+  visualizzaAssociati(user: string, attivitaTask: string, idTask: string, codProgetto: string){
+      this.navCtrl.push(VisualizzaAssociatiTaskPage,{"user": user, "attivita":attivitaTask, "idTask":idTask, "codProgetto": codProgetto});
+      //console.log("Invio idTask: "+idTask + ", attivita: " + attivitaTask);
   }
 
 }

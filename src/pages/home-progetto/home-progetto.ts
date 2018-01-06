@@ -23,17 +23,23 @@ export class HomeProgettoPage {
 
   @ViewChild('barCanvas') barCanvas;
   @ViewChild('doughnutCanvas') doughnutCanvas;
-  @ViewChild('lineCanvas') lineCanvas;
+  @ViewChild('doughnut1Canvas') doughnut1Canvas;
 
   private progetto: { costo: string, ricavo: string, giorni: string};
+  private ricavoTask: { task: string, ricavo: string}[];
+  private relazioneTask: { assegnati: string, completati: string}[];
 
   nomeProgetto: string;
   codiceProgetto: string;
   userPm: string;
   arr: number[]=[];
+  labelTask: string[]=[];
+  arrTask: number[]=[];
+  arrRelTask: number[]=[];
 
   barChart: any;
   doughnutChart: any;
+  doughnut1Chart: any;
   lineChart: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, public http: Http) {
@@ -49,6 +55,8 @@ export class HomeProgettoPage {
     this.storage.get('codProgetto').then((codice) => {
       this.codiceProgetto = codice;
       this.chiamataPost();
+      this.chiamataPostTask();
+      this.chiamataPostRelTask();
     });
 
 
@@ -71,13 +79,13 @@ export class HomeProgettoPage {
             codice: this.codiceProgetto
         }
 
-        this.http.post("http://localhost:80/WASP/apiSpeseERicaviGiornalieri.php", postParams, options).map(res => res.json())
+        this.http.post("http://localhost:8888/WASP/apiSpeseERicaviGiornalieri.php", postParams, options).map(res => res.json())
             .subscribe(data => {
                 this.progetto = data;
                 this.arr.push(parseInt(this.progetto.costo));
                 this.arr.push(parseInt(this.progetto.ricavo));
                 this.doughnutChart.update();
-                console.log("Giorni: " + this.progetto.giorni);
+                //console.log("Giorni: " + this.progetto.giorni);
                 //console.log(this.doughnutChart.data);
                 //console.log(this.progetto);
             }, error => {
@@ -85,18 +93,72 @@ export class HomeProgettoPage {
             });
     }
 
+    chiamataPostTask(){
+        var headers = new Headers();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json' );
+        headers.append('Access-Control-Allow-Origin' , '*');
+        headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+        let options = new RequestOptions({ headers:headers});
+
+        let postParams = {
+            codice: this.codiceProgetto
+        }
+
+        this.http.post("http://localhost:8888/WASP/apiRicavoDaiTask.php", postParams, options).map(res => res.json())
+            .subscribe(data => {
+                this.ricavoTask = data;
+                for (var i in this.ricavoTask) {
+                    this.arrTask.push(parseInt(this.ricavoTask[i].ricavo));
+                    this.labelTask.push(this.ricavoTask[i].task);
+                }
+                this.barChart.update();
+                //console.log(this.barChart.data);
+            }, error => {
+                console.log(error);// Error getting the data
+            });
+    }
+
+    chiamataPostRelTask(){
+        var headers = new Headers();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json' );
+        headers.append('Access-Control-Allow-Origin' , '*');
+        headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+        let options = new RequestOptions({ headers:headers});
+
+        let postParams = {
+            codice: this.codiceProgetto
+        }
+
+        this.http.post("http://localhost:8888/WASP/apiRelazioneTaskCompletatiAssegnati.php", postParams, options).map(res => res.json())
+            .subscribe(data => {
+                this.relazioneTask = data;
+                for (var i in this.relazioneTask) {
+                    this.arrRelTask.push(parseInt(this.relazioneTask[i].assegnati));
+                    this.arrRelTask.push(parseInt(this.relazioneTask[i].completati));
+                    //console.log("ass: " + this.relazioneTask[i].assegnati);
+                    //console.log("com: " + this.relazioneTask[i].completati);
+                }
+                this.doughnut1Chart.update();
+                //console.log(this.doughnut1Chart.data);
+            }, error => {
+                console.log(error);// Error getting the data
+            });
+    }
+
 
     ionViewDidEnter(){
-    /*
+
 
     this.barChart = new Chart(this.barCanvas.nativeElement, {
 
       type: 'bar',
       data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: this.labelTask,
         datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
+          label: 'Ricavo',
+          data: this.arrTask,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -127,7 +189,6 @@ export class HomeProgettoPage {
       }
 
     });
-    */
 
 
     this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
@@ -151,9 +212,30 @@ export class HomeProgettoPage {
 
     });
 
+        this.doughnut1Chart = new Chart(this.doughnut1Canvas.nativeElement, {
+
+            type: 'doughnut',
+            data: {
+                labels: ["Assegnati", "Completati"],
+                datasets: [{
+                    label: 'Assegnati/Completati',
+                    data: this.arrRelTask,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)'
+                    ],
+                    hoverBackgroundColor: [
+                        "#FF6384",
+                        "#36A2EB",
+                    ]
+                }]
+            }
+
+        });
 
 
-    this.lineChart = new Chart(this.lineCanvas.nativeElement, {
+
+   /* this.lineChart = new Chart(this.lineCanvas.nativeElement, {
 
       type: 'line',
       data: {
@@ -210,7 +292,7 @@ export class HomeProgettoPage {
         ]
       }
 
-    });
+    });*/
 
 
   }

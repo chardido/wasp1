@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angul
 import {Headers, Http, RequestOptions} from "@angular/http";
 import {HomeTmPage} from "../home-tm/home-tm";
 import {Storage} from "@ionic/storage";
+import {WelcomePage} from "../welcome/welcome";
+import {HomePage} from "../home/home";
 
 /**
  * Generated class for the ConvalidaOreListaPage page.
@@ -41,7 +43,7 @@ export class ConvalidaOreListaPage {
           codice: this.codiceProgetto
       }
 
-      this.http.post("http://localhost:80/WASP/apiListaOreComunicate.php", postParams, options).map(res => res.json())
+      this.http.post("http://localhost:8888/WASP/apiListaOreComunicate.php", postParams, options).map(res => res.json())
           .subscribe(data => {
               this.oreInviate = data;
           }, error => {
@@ -61,7 +63,14 @@ export class ConvalidaOreListaPage {
           role: 'cancel',
           handler: () => {
             console.log('Convalida');
-            this.chiamataPostConvalida(idTask, userUtente, attivita);
+            this.chiamataPostConvalida(idTask, userUtente, attivita, ore);
+              let alert = this.alertControl.create({
+                  title: 'Ore Convalidate!',
+                  subTitle: 'Ore convalidate ' + ore + ' per il task '+ attivita+'.',
+                  buttons: ['Ok']
+              });
+              alert.present();
+              this.navCtrl.setRoot(HomePage);
           }
         },
         {
@@ -75,7 +84,12 @@ export class ConvalidaOreListaPage {
     alert.present();
   }
 
-    chiamataPostConvalida(idTask: string, user: string, attivita: string){
+    chiamataPostConvalida(idTask: string, user: string, attivita: string, ore: number){
+        let alert = this.alertControl.create({
+            title: 'Ore Convalidate!',
+            subTitle: 'Ore convalidate ' + ore + ' per il task '+ attivita+'.',
+            buttons: ['Ok']
+        });
 
         var headers = new Headers();
         headers.append("Accept", 'application/json');
@@ -86,20 +100,17 @@ export class ConvalidaOreListaPage {
 
         let postParams = {
             idTask: idTask,
-            user: user
+            user: user,
+            ore: ore,
+            codProgetto: this.codiceProgetto
         }
 
-        this.http.post("http://localhost:80/WASP/apiConvalidaOre.php", postParams, options).map(res => res.json())
+        this.http.post("http://localhost:8888/WASP/apiConvalidaOre.php", postParams, options).map(res => res.json())
             .subscribe(data => {
                 if(data['_body']==1){
-                    let alert = this.alertControl.create({
-                        title: 'Ore Convalidate!',
-                        subTitle: 'Ore convalidate per il task '+ attivita+'.',
-                        buttons: ['Ok']
-                    });
-                    alert.present();
+                    console.log("Convalidate");
                 }else{
-                    console.log("Errore convalida");
+                    //console.log("Errore convalida");
                 }
             }, error => {
                 console.log(error);// Error getting the data

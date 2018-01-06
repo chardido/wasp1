@@ -44,10 +44,10 @@ export class MyApp {
     { title: 'Aggiungi Team Member', component: AggiungimemberPage, icon: 'ios-person-add-outline'},
     { title: 'Crea Task', component: CreaTaskPage, icon: 'ios-add-outline'},
     { title: 'Assegna Task', component: AssegnaTaskPage, icon: 'ios-person-add-outline'},
+      { title: 'Dettagli Tasks', component: VisualizzaTaskPage, icon: 'ios-list-outline'},
     { title: 'Visualizza Members', component: VisualizzaMembersPage, icon: 'ios-people-outline'},
     { title: 'Aggiorna Budget', component: ModificaBudgetPage, icon: 'ios-cash-outline'},
     { title: 'Convalida Ore', component: ConvalidaOreListaPage, icon: 'ios-clock-outline'},
-    { title: 'Visualizza Tasks', component: VisualizzaTaskPage, icon: 'ios-list-outline'},
   ];
 
   pagesProgettoTM: PageInterface[] = [
