@@ -28,7 +28,8 @@
     </ion-item>
     <h2 text-center="" [hidden]="!oreComunicate">Task Completato</h2>
     <ion-item [hidden]="!oreComunicate">
-      <h4> Ore Comunicate <span float-right><strong>{{ oreComunicate | uppercase}} </strong></span></h4>
+        <h4 text-center="" *ngIf="oreComunicate < 1"> <b>Ore NON Convalidate dal Project Manager!</b> </h4>
+        <h4 *ngIf="oreComunicate > 0"> Ore Comunicate <span float-right><strong>{{ oreComunicate | uppercase}} </strong></span></h4>
     </ion-item>
 
   </ion-list>

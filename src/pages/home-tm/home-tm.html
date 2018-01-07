@@ -21,10 +21,15 @@
   <h2>Notifiche</h2>
   <ion-list>
     <ion-item *ngFor="let notifica of notifiche">
-      <h2><strong>{{notifica.titolo}}</strong></h2>
-      <h4>{{notifica.descrizione}}</h4>
-      <h4>{{notifica.data}}</h4>
+      <h2><strong>Nuovo Task</strong></h2>
+      <h4><b>{{notifica.attivita}}</b></h4>
+      <h4>Progetto {{notifica.nome}} -  <span text-right="">Project Manager {{notifica.user | uppercase}}</span></h4>
+      <h4>Inizio {{notifica.dataInizio | date:"medium"}}</h4>
     </ion-item>
+      <ion-item *ngFor="let check of ore">
+          <h2><strong>Comunicazione Ore </strong></h2>
+          <h4>Le <b>{{check.oreComunicate}}</b> ore per il task <b>{{check.attivita}}</b> sono state <b>rifiutate</b> dal project manager {{check.user}}!</h4>
+      </ion-item>
   </ion-list>
 
   <h2>Task in corso</h2>

@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import {WelcomePage} from "../welcome/welcome";
+import {Headers, Http, RequestOptions} from "@angular/http";
+import {ConvalidaOreListaPage} from "../convalida-ore-lista/convalida-ore-lista";
+import {SelezionaprogettoPage} from "../selezionaprogetto/selezionaprogetto";
 
 
 @Component({
@@ -10,18 +13,52 @@ import {WelcomePage} from "../welcome/welcome";
 })
 export class HomePage {
   private username: string;
-  private notifiche: { titolo: string, descrizione: string, data:string}[];
+  private infoOreInviate: {user: string, idTask: string, attivita: string, oreComunicate: number, dataInizio: string, dataFine: string}[];
+  codiceProgetto: string;
 
-
-  constructor(public navCtrl: NavController, private storage: Storage) {
+  constructor(public navCtrl: NavController, private storage: Storage, public http: Http) {
     setTimeout(this.checkLogin(), 1000);
 
-    this.notifiche = [
-      {"titolo":"Comunicazione Ore", "descrizione":"Umberto Picariello ha comunicato le ore per il task 1", "data":"03/01/2018"},
-      {"titolo":"Comunicazione Ore", "descrizione":"Fabiano Pecorelli ha comunicato le ore per il task 2", "data":"02/01/2018"},
-    ];
+      this.storage.get('codProgetto').then((codice) => {
+          this.codiceProgetto = codice;
+          this.chiamataPost();
+      });
 
   }
+
+    chiamataPost(){
+        var headers = new Headers();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json' );
+        headers.append('Access-Control-Allow-Origin' , '*');
+        headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+        let options = new RequestOptions({ headers:headers});
+
+        let postParams = {
+            codice: this.codiceProgetto
+        }
+
+        this.http.post("http://localhost:8888/WASP/apiListaOreComunicate.php", postParams, options).map(res => res.json())
+            .subscribe(data => {
+                this.infoOreInviate = data;
+            }, error => {
+                console.log(error);// Error getting the data
+            });
+
+    }
+
+    apriConvalidaOre(){
+        this.navCtrl.setRoot(ConvalidaOreListaPage);
+    }
+
+    checkProgettoSelezionato(){
+        this.storage.get('progetto').then((progetto) => {
+            if (progetto == null) {
+                console.log("Seleziona il progetto prima di procedere");
+                this.navCtrl.setRoot(SelezionaprogettoPage);
+            }
+        });
+    }
 
   checkLogin(){
     this.storage.get('username').then((name) => {

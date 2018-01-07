@@ -76,6 +76,14 @@ export class ConvalidaOreListaPage {
         {
           text: 'Non convalidare',
           handler: () => {
+              this.chiamataPostNonConvalidare(idTask, userUtente, attivita);
+              let alert2 = this.alertControl.create({
+                  title: 'Ore Non Convalidate!',
+                  subTitle: 'Ore non convalidate ' + ore + ' per il task '+ attivita+'.',
+                  buttons: ['Ok']
+              });
+              alert2.present();
+              this.navCtrl.setRoot(HomePage);
             console.log('Non convalida');
           }
         }
@@ -84,12 +92,35 @@ export class ConvalidaOreListaPage {
     alert.present();
   }
 
+    chiamataPostNonConvalidare(idTask: string, user: string, attivita: string){
+
+        //console.log("id: " + idTask + "; user: " + user + ", attivi: " + attivita);
+        var headers = new Headers();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json' );
+        headers.append('Access-Control-Allow-Origin' , '*');
+        headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+        let options = new RequestOptions({ headers:headers});
+
+        let postParams = {
+            idTask: idTask,
+            user: user,
+            codProgetto: this.codiceProgetto
+        }
+
+        this.http.post("http://localhost:8888/WASP/apiNonConvalidareOre.php", postParams, options).map(res => res.json())
+            .subscribe(data => {
+                if(data['_body']==1){
+                    console.log("Ore NON convalidate");
+                }else{
+                    //console.log("Errore convalida");
+                }
+            }, error => {
+                console.log(error);// Error getting the data
+            });
+    }
+
     chiamataPostConvalida(idTask: string, user: string, attivita: string, ore: number){
-        let alert = this.alertControl.create({
-            title: 'Ore Convalidate!',
-            subTitle: 'Ore convalidate ' + ore + ' per il task '+ attivita+'.',
-            buttons: ['Ok']
-        });
 
         var headers = new Headers();
         headers.append("Accept", 'application/json');

@@ -13,10 +13,14 @@
 
   <h2>Notifiche</h2>
   <ion-list>
-    <ion-item *ngFor="let notifica of notifiche">
-      <h2><strong>{{notifica.titolo}}</strong></h2>
-      <h4>{{notifica.descrizione}}</h4>
-      <h4>{{notifica.data}}</h4>
+
+          <h4 text-center="" *ngIf="codiceProgetto === null"> Seleziona un progetto! </h4>
+
+    <ion-item (click)="apriConvalidaOre()" *ngFor="let notifica of infoOreInviate">
+      <h2><strong>{{notifica.user | uppercase}}</strong></h2>
+      <h4>{{notifica.attivita | uppercase}}</h4>
+      <h4>Ore comunicate: <b>{{notifica.oreComunicate}}</b></h4>
+      <h4>Data Inizio: {{notifica.dataInizio | date:"medium"}}</h4>
     </ion-item>
   </ion-list>
 

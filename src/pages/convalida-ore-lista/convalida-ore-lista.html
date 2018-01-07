@@ -21,7 +21,7 @@
   <br>
   <ion-list>
     <button (click)="convalidaOre(ore.user, ore.oreComunicate, ore.attivita, ore.idTask)" ion-item *ngFor="let ore of oreInviate">
-      <h2>{{ore.user | uppercase}}</h2>
+      <h2><b>{{ore.user | uppercase}}</b></h2>
       <h4>Attivit&agrave;: <strong>{{ore.attivita}}</strong></h4>
       <h6>Ore inviate: {{ore.oreComunicate}}</h6>
     </button>

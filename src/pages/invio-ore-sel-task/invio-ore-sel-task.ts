@@ -33,7 +33,7 @@ export class InvioOreSelTaskPage {
   }
 
   inviaOre(username: string, task: string, idTask: string, oreComunicate: number){
-      if(oreComunicate == null){
+      if( (oreComunicate == null) || (oreComunicate == 0) ){
           this.navCtrl.push(InvioOrePage, {"username": username, "task": task, "idTask": idTask});
       }else{
           let alert = this.alertControl.create({

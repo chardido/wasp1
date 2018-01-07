@@ -216,9 +216,9 @@ export class HomeProgettoPage {
 
             type: 'doughnut',
             data: {
-                labels: ["Assegnati", "Completati"],
+                labels: ["Attivi", "Completati"],
                 datasets: [{
-                    label: 'Assegnati/Completati',
+                    label: 'Attivi/Completati',
                     data: this.arrRelTask,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
