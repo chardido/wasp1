@@ -45,7 +45,7 @@ export class LoginPage {
                 password: this.login.password,
             }
 
-            this.http.post("http://localhost:8888/WASP/apiLogin.php", postParams, options)
+            this.http.post("http://waspunisa.altervista.org/apiLogin.php", postParams, options)
                 .subscribe(data => {
                     if(data['_body']=="PM"){
                         this.storage.set('username',this.login.username);

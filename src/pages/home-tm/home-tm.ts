@@ -19,7 +19,7 @@ import {Headers, Http, RequestOptions} from "@angular/http";
 })
 export class HomeTmPage {
   private username: string;
-  private tasks: { nome: string, attivita: string, dataInizio: string, oreComunicate: number}[];
+  private tasks: {attivita: string, dataInizio: string, oreComunicate: number}[];
   private notifiche: { user: string, attivita: string, dataInizio:string, nome: string}[];
   private ore: { attivita: string, oreComunicate: number, nome: string, user: string}[];
 
@@ -28,11 +28,6 @@ export class HomeTmPage {
 
     setTimeout(this.checkLogin(), 1000);
 
-    /*this.notifiche = [
-      {"titolo":"Task", "descrizione":"Ti è stato assegnato un nuovo task", "data":"03/01/2018"},
-      {"titolo":"Comunicazione Ore", "descrizione":"Le ore comunicate per il Task 1 sono state accettate", "data":"02/01/2018"},
-      {"titolo":"Comunicazione Ore", "descrizione":"Le ore comunicate per il Task 2 sono state rifiutate", "data":"01/01/2018"},
-    ];*/
 
   }
 
@@ -48,7 +43,7 @@ export class HomeTmPage {
             username: this.username,
         }
 
-        this.http.post("http://localhost:8888/WASP/apiNotificaOreConvalidaOMeno.php", postParams, options).map(res => res.json())
+        this.http.post("http://waspunisa.altervista.org/apiNotificaOreConvalidaOMeno.php", postParams, options).map(res => res.json())
             .subscribe(data => {
                 this.ore = data;
             }, error => {
@@ -68,7 +63,7 @@ export class HomeTmPage {
             username: this.username,
         }
 
-        this.http.post("http://localhost:8888/WASP/apiListaNuoviTaskTM.php", postParams, options).map(res => res.json())
+        this.http.post("http://waspunisa.altervista.org/apiListaNuoviTaskTM.php", postParams, options).map(res => res.json())
             .subscribe(data => {
                 this.notifiche = data;
             }, error => {
@@ -88,7 +83,7 @@ export class HomeTmPage {
             username: this.username
         }
 
-        this.http.post("http://localhost:8888/WASP/apiTasksInCorsoTeamMember.php", postParams, options).map(res => res.json())
+        this.http.post("http://waspunisa.altervista.org/apiTasksInCorsoTeamMember.php", postParams, options).map(res => res.json())
             .subscribe(data => {
                 this.tasks = data;
             }, error => {
@@ -96,8 +91,8 @@ export class HomeTmPage {
             });
     }
 
-  dettaglioTask(nomeProgetto: string, attivita: string, dataInizio: string, oreComunicate){
-    this.navCtrl.push(DettaglioTaskPage, {"nomeProgetto":nomeProgetto, "attivita":attivita, "dataInizio":dataInizio, "oreComunicate":oreComunicate});
+  dettaglioTask(attivita: string, dataInizio: string, oreComunicate){
+    this.navCtrl.push(DettaglioTaskPage, {"attivita":attivita, "dataInizio":dataInizio, "oreComunicate":oreComunicate});
   }
 
   checkLogin(){

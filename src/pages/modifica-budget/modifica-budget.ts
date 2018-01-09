@@ -52,7 +52,7 @@ export class ModificaBudgetPage {
             budget: this.nuovoBudget
         }
 
-        this.http.post("http://localhost:8888/WASP/apiAggiornaBudgetProgetto.php", postParams, options)
+        this.http.post("http://waspunisa.altervista.org/apiAggiornaBudgetProgetto.php", postParams, options)
             .subscribe(data => {
               alert.present();
                 this.navCtrl.setRoot(HomeProgettoPage);

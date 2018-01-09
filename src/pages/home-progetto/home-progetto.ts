@@ -79,7 +79,7 @@ export class HomeProgettoPage {
             codice: this.codiceProgetto
         }
 
-        this.http.post("http://localhost:8888/WASP/apiSpeseERicaviGiornalieri.php", postParams, options).map(res => res.json())
+        this.http.post("http://waspunisa.altervista.org/apiSpeseERicaviGiornalieri.php", postParams, options).map(res => res.json())
             .subscribe(data => {
                 this.progetto = data;
                 this.arr.push(parseInt(this.progetto.costo));
@@ -105,7 +105,7 @@ export class HomeProgettoPage {
             codice: this.codiceProgetto
         }
 
-        this.http.post("http://localhost:8888/WASP/apiRicavoDaiTask.php", postParams, options).map(res => res.json())
+        this.http.post("http://waspunisa.altervista.org/apiRicavoDaiTask.php", postParams, options).map(res => res.json())
             .subscribe(data => {
                 this.ricavoTask = data;
                 for (var i in this.ricavoTask) {
@@ -131,7 +131,7 @@ export class HomeProgettoPage {
             codice: this.codiceProgetto
         }
 
-        this.http.post("http://localhost:8888/WASP/apiRelazioneTaskCompletatiAssegnati.php", postParams, options).map(res => res.json())
+        this.http.post("http://waspunisa.altervista.org/apiRelazioneTaskCompletatiAssegnati.php", postParams, options).map(res => res.json())
             .subscribe(data => {
                 this.relazioneTask = data;
                 for (var i in this.relazioneTask) {

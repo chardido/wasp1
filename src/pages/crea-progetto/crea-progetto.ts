@@ -41,7 +41,7 @@ export class CreaProgettoPage {
       user: this.userDaPassare
     }
 
-    this.http.post("http://localhost:8888/WASP/apiCreaProgetto.php", postParams, options)
+    this.http.post("http://waspunisa.altervista.org/apiCreaProgetto.php", postParams, options)
       .subscribe(data => {
         if(data['_body']=="0"){
             console.log("Progetto non creato!");
