@@ -70,7 +70,7 @@ export class CreaTaskPage {
             dataInizio: this.task.dataInizio
         }
 
-        this.http.post("http://localhost:8888/WASP/apiAggiungiTask.php", postParams, options)
+        this.http.post("http://waspunisa.altervista.org/apiAggiungiTask.php", postParams, options)
             .subscribe(data => {
                 alert.present();
                 this.navCtrl.setRoot(HomeProgettoPage);

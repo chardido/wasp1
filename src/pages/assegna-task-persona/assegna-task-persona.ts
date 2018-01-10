@@ -44,7 +44,7 @@ export class AssegnaTaskPersonaPage {
             codice: this.codiceProgetto,
         }
 
-        this.http.post("http://localhost:8888/WASP/apiListaMembriAssociatiAlProgetto.php", postParams, options).map(res => res.json())
+        this.http.post("http://waspunisa.altervista.org/apiListaMembriAssociatiAlProgetto.php", postParams, options).map(res => res.json())
             .subscribe(data => {
                 this.utenti = data;
                 console.log(this.utenti);
@@ -79,7 +79,7 @@ export class AssegnaTaskPersonaPage {
           codiceTask: this.codiceTask
       }
 
-      this.http.post("http://localhost:8888/WASP/apiAssegnaTaskAlMember.php", postParams, options)
+      this.http.post("http://waspunisa.altervista.org/apiAssegnaTaskAlMember.php", postParams, options)
           .subscribe(data => {
               if(data['_body']==1){
                   alert.present();

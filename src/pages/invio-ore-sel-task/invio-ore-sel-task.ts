@@ -59,7 +59,7 @@ export class InvioOreSelTaskPage {
             username: this.username
         }
 
-        this.http.post("http://localhost:8888/WASP/apiTasksInCorsoTeamMember.php", postParams, options).map(res => res.json())
+        this.http.post("http://waspunisa.altervista.org/apiTasksInCorsoTeamMember.php", postParams, options).map(res => res.json())
             .subscribe(data => {
                 this.tasks = data;
             }, error => {

@@ -64,7 +64,7 @@ export class ProfiloMemberPage {
             username: this.usernameMembro
         }
 
-        this.http.post("http://localhost:8888/WASP/apiListaTasksTeamMember.php", postParams, options).map(res => res.json())
+        this.http.post("http://waspunisa.altervista.org/apiListaTasksTeamMember.php", postParams, options).map(res => res.json())
             .subscribe(data => {
                 this.tasks = data;
             }, error => {

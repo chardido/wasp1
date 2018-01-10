@@ -67,7 +67,7 @@ export class AggiungimemberPage {
 
     chiamataGet(){
 
-        this.http.get("http://localhost:8888/WASP/apiListaTeamMember.php").map(res => res.json())
+        this.http.get("http://waspunisa.altervista.org/apiListaTeamMember.php").map(res => res.json())
             .subscribe(data => {
                 this.utenti = data;
             }, error => {
@@ -112,7 +112,7 @@ export class AggiungimemberPage {
           codiceProgetto: this.codiceProgetto,
       }
 
-      this.http.post("http://localhost:8888/WASP/apiAggiungiTeamMemberProgetto.php", postParams, options)
+      this.http.post("http://waspunisa.altervista.org/apiAggiungiTeamMemberProgetto.php", postParams, options)
           .subscribe(data => {
               if(data['_body']==1){
                   alert.present();

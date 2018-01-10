@@ -22,32 +22,41 @@ import 'rxjs/add/operator/map';
 
 @IonicPage()
 @Component({
-  selector: 'page-selezionaprogetto',
-  templateUrl: 'selezionaprogetto.html',
+    selector: 'page-selezionaprogetto',
+    templateUrl: 'selezionaprogetto.html',
 })
 export class SelezionaprogettoPage {
 
 
-  private progetti: { nome: string, codice: string }[];
+    private progetti: { nome: string, codice: string }[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, public http: Http) {
 
-     this.http.get("http://localhost:8888/WASP/apiListaProgetti.php").map(res => res.json())
-         .subscribe(data => {
-             this.progetti = data;
-             console.log(data);
-         }, error => {
-             console.log(error);// Error getting the data
-         });
+    constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, public http: Http) {
+        this.storage.get('username').then((name) => {
+            this.getRequest(name);
+        });
+    }
 
-  }
+    getRequest(username: string){
+        let postParams = {
+            user: username
+        }
 
-  apriProgetto(codice: string, nome:string){
-    console.log("Apro progetto: "+codice+" con nome: "+nome);
-    this.storage.set("progetto",nome); //<-- TODO qui va inserito il codice
-    this.storage.set("codProgetto",codice); //<-- TODO qui va inserito il codice
-    this.navCtrl.setRoot(HomeProgettoPage, {"nome": nome, "codice": codice});
-  }
+        this.http.get("http://waspunisa.altervista.org/apiListaProgetti.php?username="+username, postParams).map(res => res.json())
+            .subscribe(data => {
+                this.progetti = data;
+                console.log(data);
+            }, error => {
+                console.log(error);// Error getting the data
+            });
+    }
+
+    apriProgetto(codice: string, nome:string){
+        console.log("Apro progetto: "+codice+" con nome: "+nome);
+        this.storage.set("progetto",nome); //<-- TODO qui va inserito il codice
+        this.storage.set("codProgetto",codice); //<-- TODO qui va inserito il codice
+        this.navCtrl.setRoot(HomeProgettoPage, {"nome": nome, "codice": codice});
+    }
 
 
 

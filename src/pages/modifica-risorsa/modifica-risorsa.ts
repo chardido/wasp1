@@ -57,7 +57,7 @@ import {VisualizzaMembersPage} from "../visualizza-members/visualizza-members";
             user: this.usernameMember
         }
 
-        this.http.post("http://localhost:8888/WASP/apiAggiornaCostoMember.php", postParams, options).map(res => res.json())
+        this.http.post("http://waspunisa.altervista.org/apiAggiornaCostoMember.php", postParams, options).map(res => res.json())
             .subscribe(data => {
                 alert.present();
             }, error => {

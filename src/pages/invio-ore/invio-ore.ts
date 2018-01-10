@@ -49,11 +49,11 @@ export class InvioOrePage {
             user: this.username
         }
 
-        this.http.post("http://localhost:8888/WASP/apiInviaOre.php", postParams, options)
+        this.http.post("http://waspunisa.altervista.org/apiInviaOre.php", postParams, options)
             .subscribe(data => {
+                console.log("Comunicate "+this.oreInserite+" ore per il task: "+this.idTaskSelezonato+" da parte di: "+this.username);
                 alert.present();
                 this.navCtrl.setRoot(HomeTmPage);
-                //console.log("Comunicate "+this.oreInserite+" ore per il task: "+this.taskSelezionato);
             }, error => {
                 console.log(error);// Error getting the data
             });

@@ -54,7 +54,7 @@ export class SignupPage {
                 tipo: this.signup.tipo,
             }
 
-            this.http.post("http://localhost:8888/WASP/apiRegistraUtente.php", postParams, options)
+            this.http.post("http://waspunisa.altervista.org/apiRegistraUtente.php", postParams, options)
                 .subscribe(data => {
                     if(data['_body']==1){
                         this.storage.set('username',this.signup.username);

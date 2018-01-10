@@ -43,7 +43,7 @@ export class ConvalidaOreListaPage {
           codice: this.codiceProgetto
       }
 
-      this.http.post("http://localhost:8888/WASP/apiListaOreComunicate.php", postParams, options).map(res => res.json())
+      this.http.post("http://waspunisa.altervista.org/apiListaOreComunicate.php", postParams, options).map(res => res.json())
           .subscribe(data => {
               this.oreInviate = data;
           }, error => {
@@ -108,7 +108,7 @@ export class ConvalidaOreListaPage {
             codProgetto: this.codiceProgetto
         }
 
-        this.http.post("http://localhost:8888/WASP/apiNonConvalidareOre.php", postParams, options).map(res => res.json())
+        this.http.post("http://waspunisa.altervista.org/apiNonConvalidareOre.php", postParams, options).map(res => res.json())
             .subscribe(data => {
                 if(data['_body']==1){
                     console.log("Ore NON convalidate");
@@ -136,7 +136,7 @@ export class ConvalidaOreListaPage {
             codProgetto: this.codiceProgetto
         }
 
-        this.http.post("http://localhost:8888/WASP/apiConvalidaOre.php", postParams, options).map(res => res.json())
+        this.http.post("http://waspunisa.altervista.org/apiConvalidaOre.php", postParams, options).map(res => res.json())
             .subscribe(data => {
                 if(data['_body']==1){
                     console.log("Convalidate");

@@ -52,7 +52,7 @@ export class ModificaRicavoRisorsaPage {
             user: this.usernameMember
         }
 
-        this.http.post("http://localhost:8888/WASP/apiAggiornaRicavoMember.php", postParams, options).map(res => res.json())
+        this.http.post("http://waspunisa.altervista.org/apiAggiornaRicavoMember.php", postParams, options).map(res => res.json())
             .subscribe(data => {
                 alert.present();
             }, error => {
