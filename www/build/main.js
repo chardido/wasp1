@@ -246,99 +246,6 @@ var AssegnaTaskPersonaPage = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssegnaTaskPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__assegna_task_persona_assegna_task_persona__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__selezionaprogetto_selezionaprogetto__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-/**
- * Generated class for the AssegnaTaskPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var AssegnaTaskPage = (function () {
-    function AssegnaTaskPage(navCtrl, navParams, storage, http) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.storage = storage;
-        this.http = http;
-        this.storage.get('codProgetto').then(function (codice) {
-            _this.codiceProgetto = codice;
-            _this.chiamataPost();
-        });
-        setTimeout(this.checkProgettoSelezionato(), 1000);
-    }
-    AssegnaTaskPage.prototype.checkProgettoSelezionato = function () {
-        var _this = this;
-        this.storage.get('progetto').then(function (progetto) {
-            if (progetto == null) {
-                console.log("Seleziona il progetto prima di procedere");
-                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__selezionaprogetto_selezionaprogetto__["a" /* SelezionaprogettoPage */]);
-            }
-        });
-    };
-    AssegnaTaskPage.prototype.chiamataPost = function () {
-        var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Headers */]();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        headers.append('Access-Control-Allow-Origin', '*');
-        headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
-        var options = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var postParams = {
-            codice: this.codiceProgetto,
-        };
-        this.http.post("http://localhost:8888/WASP/apiListaTasks.php", postParams, options).map(function (res) { return res.json(); })
-            .subscribe(function (data) {
-            _this.tasks = data;
-        }, function (error) {
-            console.log(error); // Error getting the data
-        });
-    };
-    //todo - al posto del task gli sarà passato l'id
-    AssegnaTaskPage.prototype.assegnaTask = function (task, wbs) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__assegna_task_persona_assegna_task_persona__["a" /* AssegnaTaskPersonaPage */], { "nomeTask": task, "codiceTask": wbs });
-        console.log("Task selezionato: " + task + ", codiceTask: " + wbs);
-    };
-    AssegnaTaskPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-assegna-task',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/assegna-task/assegna-task.html"*/'<!--\n  Generated template for the AssegnaTaskPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Assegna task</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n<p text-center>\n  Seleziona il task da assegnare tra quelli disponibili\n</p>\n  <br>\n  <ion-list>\n    <button ion-item (click)="assegnaTask(task.attivita, task.wbs)" *ngFor="let task of tasks">\n      <h2> <strong>{{ task.attivita}} </strong></h2>\n      <h3> {{ task.dataInizio | date:"medium" }} </h3>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/assegna-task/assegna-task.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */]])
-    ], AssegnaTaskPage);
-    return AssegnaTaskPage;
-}());
-
-//# sourceMappingURL=assegna-task.js.map
-
-/***/ }),
-
-/***/ 120:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
@@ -425,7 +332,7 @@ var LoginPage = (function () {
 
 /***/ }),
 
-/***/ 121:
+/***/ 120:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -471,7 +378,7 @@ var DettaglioTaskPage = (function () {
 
 /***/ }),
 
-/***/ 122:
+/***/ 121:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -558,6 +465,99 @@ var SignupPage = (function () {
 }());
 
 //# sourceMappingURL=signup.js.map
+
+/***/ }),
+
+/***/ 122:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssegnaTaskPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__assegna_task_persona_assegna_task_persona__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__selezionaprogetto_selezionaprogetto__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+/**
+ * Generated class for the AssegnaTaskPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AssegnaTaskPage = (function () {
+    function AssegnaTaskPage(navCtrl, navParams, storage, http) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.storage = storage;
+        this.http = http;
+        this.storage.get('codProgetto').then(function (codice) {
+            _this.codiceProgetto = codice;
+            _this.chiamataPost();
+        });
+        setTimeout(this.checkProgettoSelezionato(), 1000);
+    }
+    AssegnaTaskPage.prototype.checkProgettoSelezionato = function () {
+        var _this = this;
+        this.storage.get('progetto').then(function (progetto) {
+            if (progetto == null) {
+                console.log("Seleziona il progetto prima di procedere");
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__selezionaprogetto_selezionaprogetto__["a" /* SelezionaprogettoPage */]);
+            }
+        });
+    };
+    AssegnaTaskPage.prototype.chiamataPost = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Headers */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        headers.append('Access-Control-Allow-Origin', '*');
+        headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+        var options = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var postParams = {
+            codice: this.codiceProgetto,
+        };
+        this.http.post("http://localhost:8888/WASP/apiListaTasks.php", postParams, options).map(function (res) { return res.json(); })
+            .subscribe(function (data) {
+            _this.tasks = data;
+        }, function (error) {
+            console.log(error); // Error getting the data
+        });
+    };
+    //todo - al posto del task gli sarà passato l'id
+    AssegnaTaskPage.prototype.assegnaTask = function (task, wbs) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__assegna_task_persona_assegna_task_persona__["a" /* AssegnaTaskPersonaPage */], { "nomeTask": task, "codiceTask": wbs });
+        console.log("Task selezionato: " + task + ", codiceTask: " + wbs);
+    };
+    AssegnaTaskPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-assegna-task',template:/*ion-inline-start:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/assegna-task/assegna-task.html"*/'<!--\n  Generated template for the AssegnaTaskPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Assegna task</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n<p text-center>\n  Seleziona il task da assegnare tra quelli disponibili\n</p>\n  <br>\n  <ion-list>\n    <button ion-item (click)="assegnaTask(task.attivita, task.wbs)" *ngFor="let task of tasks">\n      <h2> <strong>{{ task.attivita}} </strong></h2>\n      <h3> {{ task.dataInizio | date:"medium" }} </h3>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/umbertopicariello/Documents/GitHub/wasp1/src/pages/assegna-task/assegna-task.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */]])
+    ], AssegnaTaskPage);
+    return AssegnaTaskPage;
+}());
+
+//# sourceMappingURL=assegna-task.js.map
 
 /***/ }),
 
@@ -777,7 +777,7 @@ var InvioOreSelTaskPage = (function () {
         });
     }
     InvioOreSelTaskPage.prototype.inviaOre = function (username, task, idTask, oreComunicate) {
-        if (oreComunicate == null) {
+        if ((oreComunicate == null) || (oreComunicate == 0)) {
             this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__invio_ore_invio_ore__["a" /* InvioOrePage */], { "username": username, "task": task, "idTask": idTask });
         }
         else {
@@ -1043,7 +1043,6 @@ var ModificaRicavoRisorsaPage = (function () {
     }
     ModificaRicavoRisorsaPage.prototype.modifica = function () {
         this.chiamataPost();
-        //this.navCtrl.pop();
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__visualizza_members_visualizza_members__["a" /* VisualizzaMembersPage */]);
     };
     ModificaRicavoRisorsaPage.prototype.chiamataPost = function () {
@@ -1443,11 +1442,11 @@ var map = {
 		20
 	],
 	"../pages/assegna-task/assegna-task.module": [
-		477,
+		478,
 		19
 	],
 	"../pages/convalida-ore-lista/convalida-ore-lista.module": [
-		478,
+		477,
 		18
 	],
 	"../pages/crea-progetto/crea-progetto.module": [
@@ -1467,11 +1466,11 @@ var map = {
 		14
 	],
 	"../pages/home-tm/home-tm.module": [
-		483,
+		484,
 		13
 	],
 	"../pages/invio-ore-sel-task/invio-ore-sel-task.module": [
-		484,
+		483,
 		12
 	],
 	"../pages/invio-ore/invio-ore.module": [
@@ -1495,11 +1494,11 @@ var map = {
 		7
 	],
 	"../pages/profilo-member/profilo-member.module": [
-		490,
+		491,
 		6
 	],
 	"../pages/selezionaprogetto/selezionaprogetto.module": [
-		491,
+		490,
 		5
 	],
 	"../pages/signup/signup.module": [
@@ -1942,14 +1941,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(474);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_welcome_welcome__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_signup_signup__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_signup_signup__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_selezionaprogetto_selezionaprogetto__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_home_progetto_home_progetto__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_crea_progetto_crea_progetto__ = __webpack_require__(123);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_aggiungimember_aggiungimember__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_crea_task_crea_task__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_assegna_task_assegna_task__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_assegna_task_assegna_task__ = __webpack_require__(122);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_assegna_task_persona_assegna_task_persona__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_modifica_budget_modifica_budget__ = __webpack_require__(127);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_modifica_risorsa_modifica_risorsa__ = __webpack_require__(130);
@@ -1959,7 +1958,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_invio_ore_sel_task_invio_ore_sel_task__ = __webpack_require__(125);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_invio_ore_invio_ore__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_home_tm_home_tm__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_dettaglio_task_dettaglio_task__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_dettaglio_task_dettaglio_task__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_convalida_ore_lista_convalida_ore_lista__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_visualizza_task_visualizza_task__ = __webpack_require__(132);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_visualizza_associati_task_visualizza_associati_task__ = __webpack_require__(131);
@@ -2044,21 +2043,21 @@ var AppModule = (function () {
                     links: [
                         { loadChildren: '../pages/aggiungimember/aggiungimember.module#AggiungimemberPageModule', name: 'AggiungimemberPage', segment: 'aggiungimember', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/assegna-task-persona/assegna-task-persona.module#AssegnaTaskPersonaPageModule', name: 'AssegnaTaskPersonaPage', segment: 'assegna-task-persona', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/assegna-task/assegna-task.module#AssegnaTaskPageModule', name: 'AssegnaTaskPage', segment: 'assegna-task', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/convalida-ore-lista/convalida-ore-lista.module#ConvalidaOreListaPageModule', name: 'ConvalidaOreListaPage', segment: 'convalida-ore-lista', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/assegna-task/assegna-task.module#AssegnaTaskPageModule', name: 'AssegnaTaskPage', segment: 'assegna-task', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/crea-progetto/crea-progetto.module#CreaProgettoPageModule', name: 'CreaProgettoPage', segment: 'crea-progetto', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/crea-task/crea-task.module#CreaTaskPageModule', name: 'CreaTaskPage', segment: 'crea-task', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/dettaglio-task/dettaglio-task.module#DettaglioTaskPageModule', name: 'DettaglioTaskPage', segment: 'dettaglio-task', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home-progetto/home-progetto.module#HomeProgettoPageModule', name: 'HomeProgettoPage', segment: 'home-progetto', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home-tm/home-tm.module#HomeTmPageModule', name: 'HomeTmPage', segment: 'home-tm', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/invio-ore-sel-task/invio-ore-sel-task.module#InvioOreSelTaskPageModule', name: 'InvioOreSelTaskPage', segment: 'invio-ore-sel-task', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home-tm/home-tm.module#HomeTmPageModule', name: 'HomeTmPage', segment: 'home-tm', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/invio-ore/invio-ore.module#InvioOrePageModule', name: 'InvioOrePage', segment: 'invio-ore', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/modifica-budget/modifica-budget.module#ModificaBudgetPageModule', name: 'ModificaBudgetPage', segment: 'modifica-budget', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/modifica-ricavo-risorsa/modifica-ricavo-risorsa.module#ModificaRicavoRisorsaPageModule', name: 'ModificaRicavoRisorsaPage', segment: 'modifica-ricavo-risorsa', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/modifica-risorsa/modifica-risorsa.module#ModificaRisorsaPageModule', name: 'ModificaRisorsaPage', segment: 'modifica-risorsa', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/profilo-member/profilo-member.module#ProfiloMemberPageModule', name: 'ProfiloMemberPage', segment: 'profilo-member', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/selezionaprogetto/selezionaprogetto.module#SelezionaprogettoPageModule', name: 'SelezionaprogettoPage', segment: 'selezionaprogetto', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/profilo-member/profilo-member.module#ProfiloMemberPageModule', name: 'ProfiloMemberPage', segment: 'profilo-member', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/visualizza-associati-task/visualizza-associati-task.module#VisualizzaAssociatiTaskPageModule', name: 'VisualizzaAssociatiTaskPage', segment: 'visualizza-associati-task', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/visualizza-members/visualizza-members.module#VisualizzaMembersPageModule', name: 'VisualizzaMembersPage', segment: 'visualizza-members', priority: 'low', defaultHistory: [] },
@@ -2119,7 +2118,7 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__welcome_welcome__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dettaglio_task_dettaglio_task__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dettaglio_task_dettaglio_task__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2149,12 +2148,25 @@ var HomeTmPage = (function () {
         this.storage = storage;
         this.http = http;
         setTimeout(this.checkLogin(), 1000);
-        /*this.notifiche = [
-          {"titolo":"Task", "descrizione":"Ti è stato assegnato un nuovo task", "data":"03/01/2018"},
-          {"titolo":"Comunicazione Ore", "descrizione":"Le ore comunicate per il Task 1 sono state accettate", "data":"02/01/2018"},
-          {"titolo":"Comunicazione Ore", "descrizione":"Le ore comunicate per il Task 2 sono state rifiutate", "data":"01/01/2018"},
-        ];*/
     }
+    HomeTmPage.prototype.chiamataPostCheckOre = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Headers */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        headers.append('Access-Control-Allow-Origin', '*');
+        headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+        var options = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var postParams = {
+            username: this.username,
+        };
+        this.http.post("http://localhost:8888/WASP/apiNotificaOreConvalidaOMeno.php", postParams, options).map(function (res) { return res.json(); })
+            .subscribe(function (data) {
+            _this.ore = data;
+        }, function (error) {
+            console.log(error); // Error getting the data
+        });
+    };
     HomeTmPage.prototype.chiamataPostNotifiche = function () {
         var _this = this;
         var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Headers */]();
@@ -2164,7 +2176,7 @@ var HomeTmPage = (function () {
         headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
         var options = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* RequestOptions */]({ headers: headers });
         var postParams = {
-            username: this.username
+            username: this.username,
         };
         this.http.post("http://localhost:8888/WASP/apiListaNuoviTaskTM.php", postParams, options).map(function (res) { return res.json(); })
             .subscribe(function (data) {
@@ -2203,6 +2215,8 @@ var HomeTmPage = (function () {
             else {
                 _this.username = name;
                 _this.chiamataPost();
+                _this.chiamataPostNotifiche();
+                _this.chiamataPostCheckOre();
                 console.log(_this.username);
             }
         });
@@ -2584,7 +2598,7 @@ webpackContext.id = 430;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_crea_progetto_crea_progetto__ = __webpack_require__(123);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_aggiungimember_aggiungimember__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_crea_task_crea_task__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_assegna_task_assegna_task__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_assegna_task_assegna_task__ = __webpack_require__(122);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_modifica_budget_modifica_budget__ = __webpack_require__(127);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_visualizza_members_visualizza_members__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_invio_ore_sel_task_invio_ore_sel_task__ = __webpack_require__(125);
@@ -2787,8 +2801,8 @@ var ListPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WelcomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup_signup__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup_signup__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_tm_home_tm__ = __webpack_require__(40);
@@ -3028,6 +3042,14 @@ var ConvalidaOreListaPage = (function () {
                 {
                     text: 'Non convalidare',
                     handler: function () {
+                        _this.chiamataPostNonConvalidare(idTask, userUtente, attivita);
+                        var alert2 = _this.alertControl.create({
+                            title: 'Ore Non Convalidate!',
+                            subTitle: 'Ore non convalidate ' + ore + ' per il task ' + attivita + '.',
+                            buttons: ['Ok']
+                        });
+                        alert2.present();
+                        _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
                         console.log('Non convalida');
                     }
                 }
@@ -3035,12 +3057,32 @@ var ConvalidaOreListaPage = (function () {
         });
         alert.present();
     };
-    ConvalidaOreListaPage.prototype.chiamataPostConvalida = function (idTask, user, attivita, ore) {
-        var alert = this.alertControl.create({
-            title: 'Ore Convalidate!',
-            subTitle: 'Ore convalidate ' + ore + ' per il task ' + attivita + '.',
-            buttons: ['Ok']
+    ConvalidaOreListaPage.prototype.chiamataPostNonConvalidare = function (idTask, user, attivita) {
+        //console.log("id: " + idTask + "; user: " + user + ", attivi: " + attivita);
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        headers.append('Access-Control-Allow-Origin', '*');
+        headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var postParams = {
+            idTask: idTask,
+            user: user,
+            codProgetto: this.codiceProgetto
+        };
+        this.http.post("http://localhost:8888/WASP/apiNonConvalidareOre.php", postParams, options).map(function (res) { return res.json(); })
+            .subscribe(function (data) {
+            if (data['_body'] == 1) {
+                console.log("Ore NON convalidate");
+            }
+            else {
+                //console.log("Errore convalida");
+            }
+        }, function (error) {
+            console.log(error); // Error getting the data
         });
+    };
+    ConvalidaOreListaPage.prototype.chiamataPostConvalida = function (idTask, user, attivita, ore) {
         var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
         headers.append("Accept", 'application/json');
         headers.append('Content-Type', 'application/json');

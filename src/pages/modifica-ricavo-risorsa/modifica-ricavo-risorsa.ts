@@ -29,7 +29,6 @@ export class ModificaRicavoRisorsaPage {
 
   modifica(){
       this.chiamataPost();
-    //this.navCtrl.pop();
       this.navCtrl.setRoot(VisualizzaMembersPage);
   }
 

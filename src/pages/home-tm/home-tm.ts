@@ -28,12 +28,6 @@ export class HomeTmPage {
 
     setTimeout(this.checkLogin(), 1000);
 
-    /*this.notifiche = [
-      {"titolo":"Task", "descrizione":"Ti è stato assegnato un nuovo task", "data":"03/01/2018"},
-      {"titolo":"Comunicazione Ore", "descrizione":"Le ore comunicate per il Task 1 sono state accettate", "data":"02/01/2018"},
-      {"titolo":"Comunicazione Ore", "descrizione":"Le ore comunicate per il Task 2 sono state rifiutate", "data":"01/01/2018"},
-    ];*/
-
   }
 
     chiamataPostCheckOre(){
